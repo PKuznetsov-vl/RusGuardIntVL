@@ -1,0 +1,242 @@
+swagger: '2.0'
+info:
+  title: IService1
+  version: "1.0.0.0"
+host: localhost
+schemes:
+  - http
+  - https
+basePath: /IService1
+paths:
+  /ReturnGetAcsAccessLevels:
+    get:
+      summary: ReturnGetAcsAccessLevels
+      consumes:
+        - application/xml
+      produces:
+        - application/json
+      tags:
+        - IService1
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: "#/definitions/Stream"
+        default:
+          description: failed
+          schema:
+            type: "string"
+       
+  /ReturnGetAcsEmployeeGroups:
+    get:
+      summary: ReturnGetAcsEmployeeGroups
+      consumes:
+        - application/xml
+      produces:
+        - application/json
+      tags:
+        - IService1
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: "#/definitions/Stream"
+        default:
+          description: failed
+          schema:
+            type: "string"
+  /ReturnGetGuestEmployeeGroup:
+    get:
+      summary: ReturnGetGuestEmployeeGroup
+      consumes:
+        - application/xml
+      produces:
+        - application/json
+      parameters:
+        - name: GuidId
+          in: query
+          required: false
+          type: "string"
+      tags:
+        - IService1
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: "#/definitions/Stream"
+        default:
+          description: failed
+          schema:
+            type: "string"
+  /ReturnGetAcsEmployeesInGroup:
+    get:
+      summary: ReturnGetAcsEmployeesInGroup
+      consumes:
+        - application/xml
+      produces:
+        - application/json
+      parameters:
+        - name: value
+          in: query
+          required: false
+          type: "string"
+      tags:
+        - IService1
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: "#/definitions/Stream"
+        default:
+          description: failed
+          schema:
+            type: "string"
+  /ReturnGetAcsEmployeesByTableNumbers:
+    get:
+      summary: ReturnGetAcsEmployeesByTableNumbers
+      consumes:
+        - application/xml
+      produces:
+        - application/json
+      parameters:
+        - name: value
+          in: query
+          required: false
+          type: "string"
+      tags:
+        - IService1
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: "#/definitions/Stream"
+        default:
+          description: failed
+          schema:
+            type: "string"
+  /ReturnGetAcsEmployee:
+    get:
+      summary: ReturnGetAcsEmployee
+      consumes:
+        - application/xml
+      produces:
+        - application/json
+      parameters:
+        - name: value
+          in: query
+          required: false
+          type: "string"
+      tags:
+        - IService1
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: "#/definitions/Stream"
+        default:
+          description: failed
+          schema:
+            type: "string"
+  /ReturnEmployeeKeys:
+    get:
+      summary: ReturnEmployeeKeys
+      consumes:
+        - application/xml
+      produces:
+        - application/json
+      parameters:
+        - name: value
+          in: query
+          required: false
+          type: "string"
+      tags:
+        - IService1
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: "#/definitions/Stream"
+        default:
+          description: failed
+          schema:
+            type: "string"
+  /GetSetAcsEmployeePhoto:
+    get:
+      summary: GetSetAcsEmployeePhoto
+      consumes:
+        - application/xml
+      produces:
+        - application/json
+      parameters:
+        - name: employeeId
+          in: query
+          required: false
+          type: "string"
+        - name: photoNumber
+          in: query
+          required: true
+          type: "number"
+          format: int32
+      tags:
+        - IService1
+      responses:
+        200:
+          description: OK
+          schema:
+            type: "string"
+        default:
+          description: failed
+          schema:
+            type: "string"
+  /GetDataUsingDataContract:
+    post:
+      summary: LockAcsEmployee
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: composite
+          in: body
+          required: false
+          schema:
+            $ref: "#/definitions/CompositeType"
+      tags:
+        - IService1
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: "#/definitions/CompositeType"
+        default:
+          description: failed
+          schema:
+            type: "string"
+definitions:
+  Stream:
+    type: object
+    properties:
+    
+      Length:
+        type: "number"
+        format: int32
+      Position:
+        type: "number"
+        format: int32
+      ReadTimeout:
+        type: "number"
+        format: int32
+      WriteTimeout:
+        type: "number"
+        format: int32
+  
+  CompositeType:
+    type: object
+    properties:
+    
+      StringValue:
+        type: "string"
+        format: string
+      BoolValue:
+        type: "boolean"
+        format: boolean
