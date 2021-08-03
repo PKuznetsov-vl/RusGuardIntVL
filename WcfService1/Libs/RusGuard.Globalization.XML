@@ -1,0 +1,2803 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RusGuard.Globalization</name>
+    </assembly>
+    <members>
+        <member name="T:VVIInvestment.RusGuard.Globalization.Attributes.GDescriptionAttribute">
+            <summary>
+            Атрибут задает имя ресурса для получения описания 
+            типа, свойства, метода или события из файла ресурсов, 
+            располагающегося по тому же пути, что и тип, и имеющего формат
+            имени SR.имя локали (например, ru. Для английского языка ничего).resx.
+            Например : SR.ru.resx для русской локали, SR.resx для локали по умолчанию
+            </summary>
+        </member>
+        <member name="M:VVIInvestment.RusGuard.Globalization.Attributes.GDescriptionAttribute.#ctor(System.String)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="resName">Имя ресурса для получения дружественного имени 
+            из файла ресурсов 
+            "Пространство имен типа, к которому применен атрибут".SR.resources
+            сборки, в которой находится определение типа.</param>
+        </member>
+        <member name="T:VVIInvestment.RusGuard.Globalization.Attributes.GDisplayNameAttribute">
+            <summary>
+            Атрибут задает имя ресурса для получения дружественного имени 
+            типа, свойства, метода, его аргумента или события из файла ресурсов,
+            располагающегося по тому же пути, что и тип, и имеющего формат
+            имени SR.имя локали (например, ru. Для английского языка ничего).resx.
+            Например : SR.ru.resx для русской локали, SR.resx для локали по умолчанию
+            </summary>
+        </member>
+        <member name="M:VVIInvestment.RusGuard.Globalization.Attributes.GDisplayNameAttribute.#ctor(System.String)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="resName">Имя ресурса для получения дружественного имени 
+            из файла ресурсов 
+            "Пространство имен типа, к которому применен атрибут".SR.resources
+            сборки, в которой находится определение типа.</param>
+        </member>
+        <member name="T:VVIInvestment.RusGuard.Globalization.Attributes.GlobalizedStringAttribute">
+            <summary>
+            Атрибут задает имя ресурса для получения дружественного имени 
+            из файла ресурсов 
+            "Пространство имен типа, к которому применен атрибут".SR.resources
+            сборки, в которой находится определение типа.
+            </summary>
+        </member>
+        <member name="P:VVIInvestment.RusGuard.Globalization.Attributes.GlobalizedStringAttribute.ResName">
+            <summary>
+            Получить имя ресурса для получения дружественного имени  из файла ресурсов
+            "Пространство имен типа, к которому применен атрибут".SR.resources
+            сборки, в которой находится определение типа.
+            </summary>
+        </member>
+        <member name="M:VVIInvestment.RusGuard.Globalization.Attributes.GlobalizedStringAttribute.#ctor(System.String)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="resName">Имя ресурса для получения дружественного имени 
+            из файла ресурсов 
+            "Пространство имен типа, к которому применен атрибут".SR.resources
+            сборки, в которой находится определение типа.</param>
+        </member>
+        <member name="T:VVIInvestment.RusGuard.Globalization.DriverMessages">
+            <summary>
+            Сообщения, относящиеся к обработке драйверов устройств.
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.DriverMessages.DriverNotExistsInDb">
+            <summary>
+            Устройство отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.DriverMessages.InvalidDriverID">
+            <summary>
+            Получен некорректный идентификатор драйвера
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.DriverMessages.DriverExists">
+            <summary>
+            Получен некорректный идентификатор драйвера
+            </summary>
+        </member>
+        <member name="T:VVIInvestment.RusGuard.Globalization.GlobalizationHelper">
+            <summary>
+            Хелпер для получения локализованных дружественных имен и описаний 
+            типов, свойств, методов и событий.
+            См. <see cref="T:VVIInvestment.RusGuard.Globalization.Attributes.GDisplayNameAttribute"/> и 
+            <see cref="T:VVIInvestment.RusGuard.Globalization.Attributes.GDescriptionAttribute"/>.
+            </summary>
+        </member>
+        <member name="M:VVIInvestment.RusGuard.Globalization.GlobalizationHelper.GetDisplayName(System.Type)">
+            <summary>
+            Получить локализованное дружественное имя, заданное аттрибутом 
+            <see cref="T:VVIInvestment.RusGuard.Globalization.Attributes.GDisplayNameAttribute"/>. Если аттрибут не задан или 
+            не обнаружен ресурс, указанный в аттрибуте, то будет возвращено 
+            имя типа.
+            </summary>
+            <param name="type">Тип</param>
+            <returns>Локализованное дружественное имя типа.</returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="type"/> равен null.</exception>
+        </member>
+        <member name="M:VVIInvestment.RusGuard.Globalization.GlobalizationHelper.GetDisplayName(System.Reflection.PropertyInfo)">
+            <summary>
+            Получить локализованное дружественное имя, заданное аттрибутом 
+            <see cref="T:VVIInvestment.RusGuard.Globalization.Attributes.GDisplayNameAttribute"/>. Если аттрибут не задан или 
+            не обнаружен ресурс, указанный в аттрибуте, то будет возвращено 
+            имя свойства.
+            </summary>
+            <param name="prop">Свойство</param>
+            <returns>Локализованное дружественное имя свойства.</returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="prop"/> равен null.</exception>
+        </member>
+        <member name="M:VVIInvestment.RusGuard.Globalization.GlobalizationHelper.GetDisplayName(System.Reflection.MethodInfo)">
+            <summary>
+            Получить локализованное дружественное имя, заданное аттрибутом 
+            <see cref="T:VVIInvestment.RusGuard.Globalization.Attributes.GDisplayNameAttribute"/>. Если аттрибут не задан или 
+            не обнаружен ресурс, указанный в аттрибуте, то будет возвращено 
+            имя метода.
+            </summary>
+            <param name="method">Метод</param>
+            <returns>Локализованное дружественное имя метода.</returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="method"/> равен null.</exception>
+        </member>
+        <member name="M:VVIInvestment.RusGuard.Globalization.GlobalizationHelper.GetDisplayName(System.Reflection.ParameterInfo)">
+            <summary>
+            Получить локализованное дружественное имя, заданное аттрибутом 
+            <see cref="T:VVIInvestment.RusGuard.Globalization.Attributes.GDisplayNameAttribute"/>. Если аттрибут не задан или 
+            не обнаружен ресурс, указанный в аттрибуте, то будет возвращено 
+            имя параметра.
+            </summary>
+            <param name="param">Параметр</param>
+            <returns>Локализованное дружественное имя параметра.</returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="param"/> равен null.</exception>
+        </member>
+        <member name="M:VVIInvestment.RusGuard.Globalization.GlobalizationHelper.GetDisplayName(System.Reflection.EventInfo)">
+            <summary>
+            Получить локализованное дружественное имя, заданное аттрибутом 
+            <see cref="T:VVIInvestment.RusGuard.Globalization.Attributes.GDisplayNameAttribute"/>. Если аттрибут не задан или 
+            не обнаружен ресурс, указанный в аттрибуте, то будет возвращено 
+            имя события.
+            </summary>
+            <param name="evt">Событие</param>
+            <returns>Локализованное дружественное имя события.</returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="evt"/> равен null.</exception>
+        </member>
+        <member name="M:VVIInvestment.RusGuard.Globalization.GlobalizationHelper.GetDescription(System.Type)">
+            <summary>
+            Получить локализованное описание, заданное аттрибутом 
+            <see cref="T:VVIInvestment.RusGuard.Globalization.Attributes.GDescriptionAttribute"/>. Если аттрибут не задан или 
+            не обнаружен ресурс, указанный в аттрибуте, то будет возвращена 
+            пустая строка.
+            </summary>
+            <param name="type">Тип</param>
+            <returns>Локализованное описание типа.</returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="type"/> равен null.</exception>
+        </member>
+        <member name="M:VVIInvestment.RusGuard.Globalization.GlobalizationHelper.GetDescription(System.Reflection.PropertyInfo)">
+            <summary>
+            Получить локализованное описание, заданное аттрибутом 
+            <see cref="T:VVIInvestment.RusGuard.Globalization.Attributes.GDescriptionAttribute"/>. Если аттрибут не задан или 
+            не обнаружен ресурс, указанный в аттрибуте, то будет возвращена 
+            пустая строка.
+            </summary>
+            <param name="prop">Свойство</param>
+            <returns>Локализованное описание свойства.</returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="prop"/> равен null.</exception>
+        </member>
+        <member name="M:VVIInvestment.RusGuard.Globalization.GlobalizationHelper.GetDescription(System.Reflection.FieldInfo)">
+            <summary>
+            Получить локализованное описание, заданное аттрибутом 
+            <see cref="T:VVIInvestment.RusGuard.Globalization.Attributes.GDescriptionAttribute"/>. Если аттрибут не задан или 
+            не обнаружен ресурс, указанный в аттрибуте, то будет возвращена 
+            пустая строка.
+            </summary>
+            <param name="method">Метод</param>
+            <returns>Локализованное описание поля.</returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="method"/> равен null.</exception>
+        </member>
+        <member name="M:VVIInvestment.RusGuard.Globalization.GlobalizationHelper.GetDescription(System.Reflection.MethodInfo)">
+            <summary>
+            Получить локализованное описание, заданное аттрибутом 
+            <see cref="T:VVIInvestment.RusGuard.Globalization.Attributes.GDescriptionAttribute"/>. Если аттрибут не задан или 
+            не обнаружен ресурс, указанный в аттрибуте, то будет возвращена 
+            пустая строка.
+            </summary>
+            <param name="method">Метод</param>
+            <returns>Локализованное описание метода.</returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="method"/> равен null.</exception>
+        </member>
+        <member name="M:VVIInvestment.RusGuard.Globalization.GlobalizationHelper.GetDescription(System.Reflection.ParameterInfo)">
+            <summary>
+            Получить локализованное описание, заданное аттрибутом 
+            <see cref="T:VVIInvestment.RusGuard.Globalization.Attributes.GDescriptionAttribute"/>. Если аттрибут не задан или 
+            не обнаружен ресурс, указанный в аттрибуте, то будет возвращена 
+            пустая строка.
+            </summary>
+            <param name="param">Параметр</param>
+            <returns>Локализованное описание параметра.</returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="param"/> равен null.</exception>
+        </member>
+        <member name="M:VVIInvestment.RusGuard.Globalization.GlobalizationHelper.GetDescription(System.Reflection.EventInfo)">
+            <summary>
+            Получить локализованное описание, заданное аттрибутом 
+            <see cref="T:VVIInvestment.RusGuard.Globalization.Attributes.GDescriptionAttribute"/>. Если аттрибут не задан или 
+            не обнаружен ресурс, указанный в аттрибуте, то будет возвращена 
+            пустая строка.
+            </summary>
+            <param name="evt">Событие</param>
+            <returns>Локализованное описание события.</returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="evt"/> равен null.</exception>
+        </member>
+        <member name="T:VVIInvestment.RusGuard.Globalization.Messages.ISS_IntegrationMessages">
+            <summary>
+            Сообщения, связанные с интеграцией с ситемой SecurOS компании ISS (http://www.iss.ru)
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ISS_IntegrationMessages.DriverNotExistsInDB">
+            <summary>
+            Драйвер отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ISS_IntegrationMessages.DriverOrCamOrEventProtocolNotExistsInDB">
+            <summary>
+            Драйвер, камера или протокол событий отсутствуют в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ISS_IntegrationMessages.DriverEventPlaybackWithSameSettingsAlreadyExists">
+            <summary>
+            Такая связка уже существует
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ISS_IntegrationMessages.SaveDataIsNull">
+            <summary>
+            Не переданы данные для сохранения
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ISS_IntegrationMessages.RemoveDataIsNull">
+            <summary>
+            Не переданы данные для удаления
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.MifareMessages.ControllerError">
+            <summary>
+            Профиль назначен одному или нескольким контроллерам
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.MifareMessages.NotExistsInDb">
+            <summary>
+            Профиль отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.MifareMessages.UidNotExistsInDb">
+            <summary>
+            Uid отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.MifareMessages.NameCantBeNullOrEmpty">
+            <summary>
+            Имя профиля не должно быть пустым
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.MifareMessages.MifareProfileSaveDataIsNull">
+            <summary>
+            Не переданы данные профиля для сохранения
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.MifareMessages.NameCantBeGreaterThen255">
+            <summary>
+            Имя профиля не должно содержать больше 255 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.MifareMessages.DescriptionLenghtCantGreaterThen4000">
+            <summary>
+            Описание не должно содержать больше 4000 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.MifareMessages.MifareProfileWithSameNameAlreadyExists">
+            <summary>
+            Профиль с таким именем уже существует
+            </summary>
+        </member>
+        <member name="T:VVIInvestment.RusGuard.Globalization.Messages.ReportMessages">
+            <summary>
+            Сообщения, связанные с отчетами
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReportMessages.ReportNotExistsInDB">
+            <summary>
+            Отчет отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReportMessages.ReportSaveDataIsNull">
+            <summary>
+            Не переданы данные отчета для сохранения
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReportMessages.ReportNameCantBeNullOrEmpty">
+            <summary>
+            Имя отчета не должно быть пустым
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReportMessages.ReportNameLenghtCantGreaterThen255">
+            <summary>
+            Имя отчета не должно содержать больше 255 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReportMessages.ReportDescriptionLenghtCantGreaterThen4000">
+            <summary>
+            Описание отчета не должно содержать больше 4000 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReportMessages.ReportWithSameAlreadyExists">
+            <summary>
+            Отчет с таким именем уже существует
+            </summary>
+        </member>
+        <member name="T:VVIInvestment.RusGuard.Globalization.Messages.SecurOSIntegrationMessages">
+            <summary>
+            Сообщения, связанные с интеграцией RusGuard с ситемой видеонаблюдения SecurOS компании ISS (http://www.iss.ru)
+            </summary>
+        </member>
+        <member name="T:VVIInvestment.RusGuard.Globalization.Messages.TagMessages">
+            <summary>
+            Сообщения, связанные с метками
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TagMessages.NotAllowedDeletetagThatUse">
+            <summary>
+            Нельзя удалить метку, так как метка используется
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TagMessages.TagSaveDataIsNull">
+            <summary>
+            Не переданы данные меток для сохранения
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TagMessages.TagNameCantBeNullOrEmpty">
+            <summary>
+            Имя метки не должно быть пустым
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TagMessages.TagNameLenghtCantGreaterThen250">
+            <summary>
+            Имя метки не должно содержать больше 255 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TagMessages.TagDescriptionLenghtCantGreaterThen4000">
+            <summary>
+            Описание метки не должно содержать больше 4000 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TagMessages.TagWithSameAlreadyExists">
+            <summary>
+            Метка с таким именем уже существует
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TagMessages.TagNotExistsInDB">
+            <summary>
+            Метка отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TagMessages.PartOfTagsNotExistsInDb">
+            <summary>
+            Часть меток отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TagMessages.TagWithSameNameAlreadyExists">
+            <summary>
+            Метка с таким именем уже существует у группы сотрудников
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TagMessages.TagWithSameNameAlreadyExists2">
+            <summary>
+            Метка с таким именем уже существует у уровня доступа
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TagMessages.TagWithSameNameAlreadyExists3">
+            <summary>
+            Метка с таким именем уже существует у уровня доступа ящика
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TagMessages.TagWithSameNameAlreadyExists4">
+            <summary>
+            Метка с таким именем уже существует у профиля
+            </summary>
+        </member>
+        <member name="T:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages">
+            <summary>
+            Сообщения, связанные с учетом рабочего времени
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.WorkScheduleNotExistsInDbORPartOfDayTypesNotExistsInDb">
+            <summary>
+            Oдин или несколько типов дней отсутствуют в базе или график работы отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.NotExistsInDb">
+            <summary>
+            График работы  отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.DayTypeNotExistsInDb">
+            <summary>
+            Тип дня отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.WorkZoneNotExistsInDb">
+            <summary>
+            Рабочая зона  отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.WorkScheduleSaveDataIsNull">
+            <summary>
+            Не переданы данные графика работы для сохранения
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.WorkZoneSaveDataIsNull">
+            <summary>
+            Не переданы данные рабочей зоны для сохранения
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.DayTypeSaveDataIsNull">
+            <summary>
+            Не переданы данные типа дня для сохранения
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.TimeTableSaveDataIsNull">
+            <summary>
+            Не переданы данные дней для сохранения
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.NameCantBeNullOrEmpty">
+            <summary>
+            Имя уровня доступа не должно быть пустым
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.NameCantBeGreaterThen255">
+            <summary>
+            Имя уровня доступа не должно содержать больше 255 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.NameWorkZoneCantBeGreaterThen255">
+            <summary>
+            Имя рабочей зоны не должно содержать больше 255 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.ConventionDayTypeCantBeGreaterThen50">
+            <summary>
+            Сокращение типа дня не должно содержать больше 50 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.NameDayTypeCantBeGreaterThen255">
+            <summary>
+            Имя типа дня не должно содержать больше 255 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.WorkScheduleWithSameNameAlreadyExists">
+            <summary>
+            График работы с таким именем уже существует
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.DayTypeWithSameConventionAlreadyExists">
+            <summary>
+            Тип дня с таким буквенным сокращением уже существует
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.DayTypeWithSameDigitalConventionAlreadyExists">
+            <summary>
+            Тип дня с таким цифровым сокращением уже существует
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.DayTypeWithSameNameAlreadyExists">
+            <summary>
+            Тип дня с таким именем уже существует
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.WorkZoneWithSameNameAlreadyExists">
+            <summary>
+            Рабочая зона с таким именем уже существует
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.PartOfWorkSchedulesNotExistsInDb">
+            <summary>
+            Часть графиков отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.PartOfWorkZonesNotExistsInDb">
+            <summary>
+            Часть рабочих зон отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.LoadWorkScheduleListOperation">
+            <summary>
+            Загрузка списка уровней доступа
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.LoadWorkScheduleListOperationCompletedSuccessful">
+            <summary>
+            Список уровней доступа загружен
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.LoadWorkZoneListOperation">
+            <summary>
+            Загрузка списка рабочих зон
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.LoadWorkZoneListOperationCompletedSuccessful">
+            <summary>
+            Список рабочих зон загружен
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.DeleteWorkSchedule">
+             <summary>
+            Удаление уровня доступа
+             </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.DeleteWorkScheduleOperationCompletedSuccessful">
+            <summary>
+            Уровни доступа удалены
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.SaveWorkScheduleOperation">
+            <summary>
+            Сохранение данных уровня доступа
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.SaveWorkScheduleOperationCompletedSuccessful">
+            <summary>
+            Данные уровня доступа сохранены
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.LoadWorkScheduleOperation">
+            <summary>
+            Получение графиков работы
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.LoadWorkZoneOperation">
+            <summary>
+            Получение рабочих зорн работы
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.LoadTags">
+            <summary>
+            Получение меток
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.SaveEmployeeWorkSchedulesOperation">
+            <summary>
+            Обновление графиков работы сотрудника
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.SaveEmployeeWorkZonesOperation">
+            <summary>
+            Обновление рабчоих зон сотрудника
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.LoadWorkScheduleOperationSuccessful">
+            <summary>
+            Графики работы получены
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.LoadWorkZoneOperationSuccessful">
+            <summary>
+            Графики работы получены
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.AccessPointSaveDataIsNull">
+            <summary>
+            Не переданы данные для сохранения точки доступа
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.WorkZoneWithSameDriverAlreadyExists">
+            <summary>
+            Нельзя, чтобы одинаковые точки доступа содержались в списке на вход(выход)
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.WorkZoneWithSameDriverAlreadyExists2">
+            <summary>
+            Нельзя, чтобы одинаковы точки доступа с одинаковыми типами событий содержались одновременно в списке на вход и в списке на выход
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.EmployeeWorkZoneWithSameDriverAlreadyExists">
+            <summary>
+            В одной из рабочих зон, назначенной тем же сотрудникам, которым назначена текущая рабочая зона, есть одинаковые точки доступа(драйвера)
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.GroupEmployeeWorkZoneWithSameDriverAlreadyExists">
+            <summary>
+            В одной из рабочих зон, назначенных тем же группам сотрудников, оторым назначена текущая рабочая зона, есть одинаковые точки доступа(драйвера)
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.EmployeeInheritedWorkZone">
+            <summary>
+            Сотрудники наследуют родительские рабочие зоны
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.AddedAccessWorkZonesConflictedDriver">
+            <summary>
+            В добавляемых рабочих зонах содержатся одинаковые драйверы
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.EmployeeGroupInheritedWorkZones">
+            <summary>
+            Группа сотрудников наследует родительские рабочие зоны
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.BeginDateInvalid">
+            <summary>
+            Начальная дата периода больше конечной даты
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.DayModeInvalid">
+            <summary>
+            В одном или нескольких днях расписания не указан тип дня
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.NotAllowedDeleteWorkSchedulesThatUseAnEmployeGroup">
+            <summary>
+            Нельзя удалить рабочий  график, так как он назначен по крайней мере одной группе сотрудников
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.NotAllowedDeleteWorkSchedulesThatUseAnEmployе">
+            <summary>
+            Нельзя удалить рабочий график, так как он назначен по крайней мере одному из сотрудников
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.NotAllowedDeleteWorkZonesThatUseAnEmployeGroup">
+            <summary>
+            Нельзя удалить рабочую зону, так как он назначена по крайней мере одной группе сотрудников
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.TimeTrackingMessages.NotAllowedDeleteWorkZonesThatUseAnEmployе">
+            <summary>
+            Нельзя удалить рабочую зону, так как он назначена по крайней мере одному из сотрудников
+            </summary>
+        </member>
+        <member name="T:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages">
+            <summary>
+            Сообщения, связанные с уровнями доступа СКУД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.NotExistsInDb">
+            <summary>
+            Уровень доступа отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.AccessPointNotExistsInDb">
+            <summary>
+            Точка доступа отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.AccessPointDriverNotExistsInDb">
+            <summary>
+            Драйвер точки доступа отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.AccessPointScheduleNotExistsInDb">
+            <summary>
+            Расписание точки доступа отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.AccessPointBoxAccessLevelNotExistsInDb">
+            <summary>
+            Уровень доступа релейного блока отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.AccessLevelSaveDataIsNull">
+            <summary>
+            Не переданы данные уровня доступа для сохранения
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.AccessPointSaveDataIsNull">
+            <summary>
+            Не переданы данные точки доступа для сохранения
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.DriverIsNotAccessPoint">
+            <summary>
+            Драйвер не является точкой доступа
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.NameCantBeNullOrEmpty">
+            <summary>
+            Имя уровня доступа не должно быть пустым
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.NameCantBeGreaterThen255">
+            <summary>
+            Имя уровня доступа не должно содержать больше 255 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.DescriptionLenghtCantGreaterThen4000">
+            <summary>
+            Описание не должно содержать больше 4000 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.AccessLevelWithSameNameAlreadyExists">
+            <summary>
+            Уровень доступа с таким именем уже существует
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.AccessLevelWithSameDriverAlreadyExists">
+            <summary>
+            В уровне доступа  уже существует точка доступа c таким же драйвером
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.AccessPoinWithSameIndexAlreadyExists">
+            <summary>
+            Точка доступа с таким индексом уже существует
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.EmployeeAccessLevelWithSameDriverAlreadyExists">
+            <summary>
+            В одном из уровнях доступа, назначенных тем же сотрудникам, которым назначен текущий уровень доступа, есть одинаковые точки доступа(драйвера)
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.GroupEmployeeAccessLevelWithSameDriverAlreadyExists">
+            <summary>
+            В одном из уровнях доступа, назначенных тем же группам сотрудников, которым назначен текущий уровень доступа, есть одинаковые точки доступа(драйвера)
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.LoadAccessLevelEmployeeListOperation">
+            <summary>
+            Загрузка списка уровней доступа
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.LoadAccessLevelListOperation">
+            <summary>
+            Загрузка списка уровней доступа
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.LoadAccessLevelListOperationCompletedSuccessful">
+            <summary>
+            Список уровней доступа загружен
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.DeleteAccessLevel">
+             <summary>
+            Удаление уровня доступа
+             </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.DeleteAccessLevelOperationCompletedSuccessful">
+            <summary>
+            Уровни доступа удалены
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.DeleteAccessPoint">
+             <summary>
+            Удаление точки доступа
+             </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.DeleteAccessElement">
+             <summary>
+            Удаление уровней доступа
+             </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.DeleteAccessPointOperationCompletedSuccessful">
+            <summary>
+            Точки доступа удалены
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.DeleteAccessElemntOperationCompletedSuccessful">
+             <summary>
+            Уровни доступа удалены"
+             </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.SaveAccessLevelOperation">
+            <summary>
+            Сохранение данных уровня доступа
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.SaveAccessLevelOperationCompletedSuccessful">
+            <summary>
+            Данные уровня доступа сохранены
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.SaveBoxAccessLevelOperation">
+            <summary>
+            Сохранение данных уровня доступа ящика
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.SaveBoxAccessLevelOperationCompletedSuccessful">
+            <summary>
+            Данные уровня доступа ящика сохранены
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.SaveAccessPointOperation">
+            <summary>
+            Сохранение данных точки доступа
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.SaveAccessPointOperationWithDriver">
+            <summary>
+            Сохранение данных точки доступа
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.SaveAccessPointOperationWithDriverError">
+            <summary>
+            Сохранение данных точки доступа
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.SaveAccessPointOperationCompletedSuccessful">
+            <summary>
+            Данные точки доступа сохранены
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.SaveAccessPointOperationCompletedSuccessfulWithError">
+            <summary>
+            Точки доступа сохранены с ошибками
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.LoadTagOperation">
+            <summary>
+            Загрузка списка меток
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.LoadTagOperationSuccessful">
+            <summary>
+            Загрузка списка меток завершена
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.LoadAccessPointListOperation">
+            <summary>
+            Загрузка списка точек доступа
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.LoadAccessElementsListOperation">
+            <summary>
+            ЗЗагрузка списка элементов уровня доступа
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.LoadAccessPointListOperationCompletedSuccessful">
+            <summary>
+            Список точек доступа загружен
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.LoadAccessElementsListOperationCompletedSuccessful">
+            <summary>
+            Список уровней загружен
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.LoadAccessPointDriversListOperation">
+            <summary>
+            Загрузка списка драйверов точек доступа
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.LoadAccessPointDriversListOperationCompletedSuccessful">
+            <summary>
+            Список драйверов точек доступа загружен
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.PartOfAccessLevelsNotExistsInDb">
+            <summary>
+            Часть уровней доступа отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.PartOfAccessLevelsIsExistsInDb">
+            <summary>
+            Часть уровней доступа отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.AccessLevelContainsConflictedDriver">
+            <summary>
+            По крайней мере один из добавляемых уровней доступа содержит точку доступа, уже существующую в добавленных уровнях доступа
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.AddedAccessLevelContainsConflictedDriver">
+            <summary>
+            В добавляемых уровнях доступа есть одинаковые драйвера
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.BoxAccessLevelsExists">
+            <summary>
+            Уже существуют элементы доступа с такими номерами
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.BoxAccessLevelsNotExists">
+            <summary>
+            Отсутсвуют необходимые для действий элементы
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.BoxAccessLevelsDeleteError">
+            <summary>
+            Нельзя удалить элемнты, так как будет нарушен порядок следования номеров элементов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.BoxAccessLevelsIntersectr">
+            <summary>
+            Новые и реадактируемые элементы содержут прересекающиеся (одинаковые) позиции
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.BoxAccessElementsOrderError">
+            <summary>
+            Нарушен порядок следования номеров элементов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.BoxAccessElementsCountError">
+             <summary>
+            Количество элементов должно быть не более 80.
+             </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.ElementNameCantBeNullOrEmpty">
+            <summary>
+            Имя элемента уровня доступа не должно быть пустым
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsAccessLevelMessages.ElementNameCantBeGreaterThen255">
+            <summary>
+            Имя элемента уровня доступа не должно содержать больше 255 символов
+            </summary>
+        </member>
+        <member name="T:VVIInvestment.RusGuard.Globalization.Messages.AcsCustomizableDayMessages">
+            <summary>
+            Сообщтения, связанные с настраиваемыми днями СКУД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsCustomizableDayMessages.NotExistsInDb">
+            <summary>
+            День отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsCustomizableDayMessages.NameCantBeGreaterThen255">
+            <summary>
+            Имя дня не должно содержать более 255 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsCustomizableDayMessages.ForThatDayAlreadyAssignAnotherHoliday">
+            <summary>
+            На этот день уже назначен другой праздник
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsCustomizableDayMessages.ForThatDayAlreadyAssignAnotherWorkDatWithTransfer">
+            <summary>
+            На этот день уже назначен другой перенос
+            </summary>
+        </member>
+        <member name="T:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages">
+            <summary>
+            Сообщения, связанные с группами сотрудников СКУД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.NotExistsInDb">
+            <summary>
+            Группа сотрудников отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.EmployeeGroupInheritedAccessLevels">
+            <summary>
+            Группа сотрудников наследует родительские уровни доступа
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.EmployeeGroupInheritedWorkSchedules">
+            <summary>
+            Группа сотрудников наследует родительские графики работы
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.ParentGroupNotExistsInDbOrMarkedAsRemoved">
+            <summary>
+            Родительская группа отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.NameCantBeNullOrEmpty">
+            <summary>
+            Имя группы сотрудников не должно быть пустым
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.NameCantBeGreaterThen255">
+            <summary>
+            Имя группы сотрудников не должно содержать более 255 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.LoadListOperation">
+            <summary>
+            Загрузка списка групп сотрудников
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.LoadListOperationCompletedSuccessful">
+            <summary>
+            Список групп сотрудников загружен
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.LoadGroupOperation">
+            <summary>
+            Загрузка группы сотрудников
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.LoadGroupOperationCompletedSuccessful">
+            <summary>
+            Группа сотрудников загружена
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.LoadEmploeesOperation">
+            <summary>
+            Получение всех сотрудников
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.LoadEmploeesOperationCompletedSuccessful">
+            <summary>
+            Получение всех сотрудников завершено
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.LoadGroupsOperation">
+            <summary>
+            Получение групп сотрудников
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.LoadGroupEmployeesOperation">
+            <summary>
+            Получение групп сотрудников
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.SaveGroupOperation">
+            <summary>
+            Сохранение данных группы сотрудников
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.SaveGroupOperationCompletedSuccessful">
+            <summary>
+            Данные группы сотрудников сохранены
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.MoveEmployeesToGroupOperation">
+            <summary>
+            Перемещение сотрудников в группу
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.MoveEmployeesToOperationCompletedSuccessful">
+            <summary>
+            Перемещение сотрудников в группу завершено
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.DeleteGroup">
+            <summary>
+            Удаление группы сотрудников
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.DeleteGroupOperationCompletedSuccessful">
+            <summary>
+            Группа сотрудников удалена
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.LoadEmployeesOperation">
+            <summary>
+            Загрузка сотрудников
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.LoadEmployeesOperationCompletedSuccessful">
+            <summary>
+            Группа сотрудников загружена
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.ChangeLockStateOperation">
+            <summary>
+            Изменение состояния блокировки сотрудников
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.ChangeLockStateOperationCompletedSuccessful">
+            <summary>
+            Изменение состояния блокировки сотрудников заврешено
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.LoadEmployeePhotoOrderOperation">
+            <summary>
+            Получение полной информации по фотографиям сотрудника
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.LoadEmployeePhotoOrderOperationCompletedSuccessful">
+            <summary>
+            Получение полной информации по фотографиям сотрудника загружена
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.LoadEmployeeOperation">
+            <summary>
+            Получение полной информации по сотруднику
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.LoadEmployeeOperationCompletedSuccessful">
+            <summary>
+            Информация по сотруднику загружена
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.LoadAccessLevelsOperation">
+            <summary>
+            Получение уровней доступа
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.LoadAccessLevelsOperationCompletedSuccessful">
+            <summary>
+            Уровни доступа загружены
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.LoadAccessPointsOperation">
+            <summary>
+            Получение точек доступа
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.LoadAccessPointsOperationCompletedSuccessful">
+            <summary>
+            Точки доступа загружены
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.SaveEmployeeOperation">
+            <summary>
+            Сохранение данных сотрудника
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.SaveEmployeeOperationCompletedSuccessful">
+            <summary>
+            Данные сотрудника сохранены
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.SaveEmployeeOperationCompletedSuccessfulWithError">
+            <summary>
+            Данные сотрудника сохранены c ошибкой
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.LoadEmployeePhotoOperation">
+            <summary>
+            Получение фотографии сотрудника
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.LoadEmployeePhotoOperationCompletedSuccessful">
+            <summary>
+            Фотография сотрудника загружена
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.SaveEmployeeAccessLevelsOperation">
+            <summary>
+            Обновление уровней доступа сотрудника
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.SaveEmployeeKeyOperation">
+            <summary>
+            Обновление ключей сотрудника
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.SaveEmployeeEmailesOperation">
+            <summary>
+            Обновление email адресов сотрудника
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.SaveEmployeePhonesOperation">
+            <summary>
+            Обновление телефонных номеровсотрудника
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.SaveEmployeeSchedulesOperation">
+            <summary>
+            Обновление расписаний
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.SaveEmployeeAdditionalFieldsOperation">
+            <summary>
+            Обновление добавочных полей сотрудника
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.SaveEmployeePhotoOperation">
+            <summary>
+            Обновление фотографии сотрудника
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.SaveEmployeesDocumentsPhotoOperation">
+            <summary>
+            Обновление фотографии документа сотрудника
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.SaveError">
+            <summary>
+            Ошибка сохранени
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.SaveEmployeePhotoOperationCompletedSuccessful">
+            <summary>
+            Обновление фотографии сотрудника завершено
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.DeleteEmployee">
+             <summary>
+            Удаление сотрудников
+             </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeGroupMessages.DeleteEmployeeOperationCompletedSuccessful">
+            <summary>
+            Сотрудники удалены
+            </summary>
+        </member>
+        <member name="T:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeMessages">
+            <summary>
+            Сообщения, связанные с сотрудниками СКУД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeMessages.NotExistsInDb">
+            <summary>
+            Сотрудник отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeMessages.NotPhotoOrderExistsInDb">
+            <summary>
+            Настройки фото с этим индексом отсутствуют в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeMessages.AtLeastOneOfEmployeesNotExistsInDB">
+            <summary>
+            По крайней мере один из сотрудников отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeMessages.ScheduleNotExistsInDB">
+            <summary>
+            Данные расписания отсутствуют в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeMessages.ScheduleConflictDate">
+            <summary>
+            Начальная дата не может быть больше даты конечной
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeMessages.AtLeastOneOfDateExistsInDB">
+            <summary>
+            о крайней мере одна из дат уже существует в расписаниях сотрудника
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeMessages.InputParamWithEmployeesIsNullOrEmpty">
+            <summary> 
+            Не переданы сотрудники
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeMessages.EmployeeInheritedAccessLevel">
+            <summary> 
+            Сотрудник наследует родительские уровни доступа
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeMessages.EmployeeInheritedWorkSchedule">
+            <summary> 
+            Сотрудник наследует родительские графики работы
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeMessages.EmployeeWorkScheduleIsSigned">
+            <summary> 
+            Сотруднику уже назначен рабочий график
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeMessages.EmployeeWorkScheduleIsMoreThenOne">
+            <summary> 
+            Сотруднику можно назначить только один график
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeMessages.AcsEmployeeSaveDataIsNull">
+            <summary>
+            Не переданы данные сотрудника для сохранения
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeMessages.AcsEmployeeFullNameIsEmpty">
+            <summary>
+            Должно быть задано имя, фамилия или отчество сотрудника
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeMessages.FirstNameCantBeGreaterThen255">
+            <summary>
+            Имя сотрудника не должно содержать более 255 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeMessages.SecondNameCantBeGreaterThen255">
+            <summary>
+            Отчество сотрудника не должно содержать более 255 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeMessages.LastNameCantBeGreaterThen255">
+            <summary>
+            Фамилия сотрудника не должна содержать более 255 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeMessages.PassportIssueCantBeGreaterThen50">
+            <summary>
+            Серия паспорта не должна содержать более 50 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeMessages.PassportNumberCantBeGreaterThen100">
+            <summary>
+            Номер паспорта не должен содержать более 100 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeMessages.DriveSeriesCantBeGreaterThen50">
+            <summary>
+            Серия вод.удостоверения не должна содержать более 50 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeMessages.DriverNumberCantBeGreaterThen100">
+            <summary>
+            Номер вод.удостоверения не должен содержать более 100 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeMessages.ForeignPassportNumberCantBeGreaterThen100">
+            <summary>
+            Номер загран.пасспорта  не должен содержать более 100 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeMessages.ForeignPassportCodeOfIssuingStateCantBeGreaterThen50">
+            <summary>
+            Код государства выдачи не должен содержать более 50 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeMessages.ForeignPassportNationalityStateCantBeGreaterThen100">
+            <summary>
+            Гражданство не должно содержать более 100 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeMessages.ForeignPassportPersonalCodeStateCantBeGreaterThen100">
+            <summary>
+            Код не должен содержать более 100 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeMessages.PassportSexCantBeGreaterThen50">
+            <summary>
+            Номер паспорта не должен содержать более 50 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeMessages.ThisTableNumberAlreadyAssignedToAnotheEmployee">
+            <summary>
+            Табельный номер уже назначен другому сотруднику
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeMessages.PassportDepartmentCodeCantBeGreaterThen100">
+            <summary>
+            Код подразделения не должен содержать более 100 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeMessages.PlaceOfBirthCantBeGreaterThen1000">
+            <summary>
+            Место рождения не должно содержать более 1000 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeMessages.EmployeeGroupWorkScheduleIsSigned">
+            <summary>
+            Группе сотрудников уже назначен рабочий график
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsEmployeeMessages.EmployeeGroupWorkScheduleIsMoreThenOne">
+            <summary>
+            Группе сотрудников можно назначить только один график
+            </summary>
+        </member>
+        <member name="T:VVIInvestment.RusGuard.Globalization.Messages.AcsKeyMessages">
+            <summary>
+            Сообщения, связанные с ключами сотрудников СКУД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsKeyMessages.NotExistsInDb">
+            <summary>
+            Ключ отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsKeyMessages.StartDateCantBeGreaterThenEndDate">
+            <summary>
+            Дата начала действия ключа не может быть больше даты окончания
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsKeyMessages.AcsKeyAlreadyAssignedToCurrentEmployee">
+            <summary>
+            Этот ключ уже назначен данному сотруднику
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsKeyMessages.AcsKeyAlreadyAssignedToAnotherEmployee">
+            <summary>
+            Ключ уже назначен другому сотруднику
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsKeyMessages.ChangeAcsKeyValidity">
+            <summary>
+            Изменение срока действия ключа
+            </summary>
+        </member>
+        <member name="T:VVIInvestment.RusGuard.Globalization.Messages.AcsScheduleMessages">
+            <summary>
+            Сообщения, связанные с расписаниями СКУД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsScheduleMessages.NotExistsInDb">
+            <summary>
+            Расписание отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsScheduleMessages.ScheduleWithSameNameAlreadyExists">
+            <summary>
+            Расписание с таким именем уже существует
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsScheduleMessages.NameCantBeNullOrEmpty">
+            <summary>
+            Имя расписания не должно быть пустым
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsScheduleMessages.NameCantBeGreaterThen255">
+            <summary>
+            Имя расписания не должно содержать более 255 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsScheduleMessages.AtLeastOneOfInputDayIntervalsIsNull">
+            <summary>
+            По крайней мере одно из дневных расписаний не задано
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsScheduleMessages.AtLeastOneOfInputWeekIsNull">
+            <summary>
+            По крайней мере одно из недельных расписаний не передано
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsScheduleMessages.DeleteNotCustomScheduleOperationDenined">
+            <summary>
+            Запрещено удалять встроенные расписания
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsScheduleMessages.NotAllowedDeleteDayScheduleThatUseAtSomeWeekSchedule">
+            <summary>
+            Нельзя удалить расписание, т.к. оно используется по крайней мере в одном недельном расписаниии
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsScheduleMessages.NotAllowedDeleteScheduleThatUseAtSomeAccessPoint">
+            <summary>
+            Нельзя удалить расписание, т.к. оно используется по крайней мере в одной из точек доступа
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsScheduleMessages.NotAllowedDeleteBoxAccessLevelThatUseAtSomeAccessPoint">
+            <summary>
+            Нельзя удалить уровень доступа релейного блока, т.к. он используется по крайней мере в одной из точек доступа
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsScheduleMessages.EditNotCustomScheduleOperationDenined">
+            <summary>
+            Запрещено редактировать встроенные расписания
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsScheduleMessages.ThereAreTimeIntervalsWithStartTimeGreaterOrEqualEndTime">
+            <summary>
+            Присутствуют временные интервалы у которых время начала больше или равно времени окончания
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsScheduleMessages.AtLeastOneOfDayScheduleInWeekNotExistsInDb">
+            <summary>
+            По крайней мере одному из дней недели задано суточное расписание, отсутствующее в БД.
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsScheduleMessages.AtLeastOneOfTimeIntervalIntersectWithOther">
+            <summary>
+            По крайней мере один временной интервал имеет пересечение с другим интервалом
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsScheduleMessages.LoadListScheduleDay">
+            <summary>
+            Загрузка списка расписаний
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsScheduleMessages.LoadListScheduleDayCompletedSuccessful">
+            <summary>
+            Список расписаний загружен
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsScheduleMessages.LoadScheduleDay">
+            <summary>
+            Загрузка дневного расписания
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsScheduleMessages.LoadScheduleDayCompletedSuccessful">
+            <summary>
+            Дневное расписание загружено
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsScheduleMessages.LoadScheduleMultiDay">
+            <summary>
+            Загрузка многодневного расписания
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsScheduleMessages.LoadScheduleMultiDayCompletedSuccessful">
+            <summary>
+            Многодневное расписание загружено
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsScheduleMessages.LoadScheduleWeek">
+            <summary>
+            Загрузка недельного расписания
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsScheduleMessages.LoadScheduleWeekCompletedSuccessful">
+            <summary>
+            Недельное расписание загружено
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsScheduleMessages.DeleteListOperation">
+            <summary>
+            Удаление списка расписаний
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsScheduleMessages.DeleteListOperationCompletedSuccessful">
+            <summary>
+            Расписания удалены
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsScheduleMessages.SaveScheduleOperation">
+            <summary>
+            Сохранение данных расписания
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsScheduleMessages.SaveScheduleOperationCompletedSuccessful">
+            <summary>
+            Данные расписания сохранены
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsScheduleMessages.ScheduleWasRemoved">
+            <summary>
+            Недельное расписание было удалено 
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.AcsScheduleMessages.DaysSchedulesWasRemoved">
+            <summary>
+            По крайней мере одно дневное расписание было удалено
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.CameraMessages.LoadCamerasOperation">
+            <summary>
+            Загрузка камер
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.CameraMessages.LoadCamerasOperationComplete">
+            <summary>
+            Загрузка камер завершена
+            </summary>
+        </member>
+        <member name="T:VVIInvestment.RusGuard.Globalization.Messages.ClaimMessages">
+            <summary>
+            Сообщения, связанные с заявками авторизации
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ClaimMessages.SaveDataIsNull">
+            <summary>
+            Не переданы данные заявки авторизации для сохранения
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ClaimMessages.ClaimTypeCannotBeNullOrEmpty">
+            <summary>
+            Тип заявки авторизации не должен быть пустым
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ClaimMessages.ClaimTypeCannotBeGreaterThen256">
+            <summary>
+            Тип заявки акторизации не должен содержать более 256 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ClaimMessages.ClaimResourceCannotBeGreaterThen128">
+            <summary>
+            Ресурс заявки авторизации не должен содержать более 128 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ClaimMessages.SameClaimAlreadyAssignedToUserGroup">
+            <summary>
+            Группе операторов уже назначена такая заявка
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ClaimMessages.NotAllowedToEditClaimsForAdministrators">
+            <summary>
+            Запрещено изменять набор заявок авторизации для администраторов
+            </summary>
+        </member>
+        <member name="T:VVIInvestment.RusGuard.Globalization.Messages.CommonMessages">
+            <summary>
+            Общие сообщения
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.CommonMessages.ServiceNotRegisteredOnServer">
+            <summary>
+            На сервере не зарегистрирован сервис типа {0}.
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.CommonMessages.ExecutedDataExchangeWithServer">
+            <summary>
+            Производится обмен данными с сервером.
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.CommonMessages.ServerNotAvailable">
+            <summary>
+            Сервер недоступен.
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.CommonMessages.DeviceServerNotExists">
+            <summary>
+            Сервер оборудования отсутствует. Возможно, он был удален.
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.CommonMessages.DeviceServerNotAvailable">
+            <summary>
+            Сервер оборудования недоступен.
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.CommonMessages.DriverTypeNotRegisteredInTypeRepository">
+            <summary>
+            Тип драйвера не зарегистрирован в репозитории типов
+            </summary>
+        </member>
+        <member name="T:VVIInvestment.RusGuard.Globalization.Messages.ContactInformationMessages">
+            <summary>
+            Сообщения, связанные с контактной информацией различных участников системы.
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ContactInformationMessages.OwnerNotExistsInDB">
+            <summary>
+            Владелец отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ContactInformationMessages.OwnerAlreadyHasSameEmailAddress">
+            <summary>
+            У владельца уже есть данные такого Email адреса
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ContactInformationMessages.OwnerAlreadyHasSamePhoneNumber">
+            <summary>
+            У владельца уже есть данные такого телефонного номера
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ContactInformationMessages.EmailAddressNotExistsInDB">
+            <summary>
+            Данные Email адреса отсутствуют в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ContactInformationMessages.EmailAddressSaveDataCantBeNull">
+            <summary>
+            Не переданы данные Email адреса для сохранения
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ContactInformationMessages.EmailAddressCantBeNullOrEmpty">
+            <summary>
+            Должен быть задан Email адрес
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ContactInformationMessages.EmailAddressDescriptionCantBeGreaterThen255">
+            <summary>
+            Описание Email адреса не должно содержать более 255 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ContactInformationMessages.EmailAddressCantBeGreaterThen255">
+            <summary>
+            Email адрес не должен содержать более 255 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ContactInformationMessages.EmployeeAlreadyHasSameEmailAddress">
+            <summary>
+            У сотрудника уже есть данные такого Email адреса
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ContactInformationMessages.PhoneNumberNotExistsInDB">
+            <summary>
+            Данные телефонного номера отсутствуют в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ContactInformationMessages.PhoneNumberSaveDataCantBeNull">
+            <summary>
+            Не переданы данные телефонного номера для сохранения
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ContactInformationMessages.PhoneNumberCountryCodeCantBeNullOrEmpty">
+            <summary>
+            Должен быть задан код страны/региона
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ContactInformationMessages.PhoneNumberCantBeGreaterThen10">
+            <summary>
+            Телефонный номер не должен содержать более 10 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ContactInformationMessages.PhoneNumberCityCodeCantBeGreaterThen10">
+            <summary>
+            Код города телефонного номера не должен содержать более 10 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ContactInformationMessages.PhoneNumberCountryCodeCantBeGreaterThen10">
+            <summary>
+            Код страны/региона не должен содержать более 10 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ContactInformationMessages.PhoneNumberDescriptionCantBeGreaterThen255">
+            <summary>
+            Описание телефонного номера не должно содержать более 255 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ContactInformationMessages.PhoneNumberCityCodeCanteBeLessThen0">
+            <summary>
+            Код города телефонного номера не может быть отрицательным числом
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ContactInformationMessages.PhoneNumberCantBeLessThen0">
+            <summary>
+            Телефонный номер не может быть отрицательным числом
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ContactInformationMessages.EmployeeAlreadyHasSamePhoneNumber">
+            <summary>
+            У сотрудника уже есть данные такого телефонного номера
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ContactInformationMessages.EmailDistributionAddressNotExistsInDB">
+            <summary>
+            Данные адреса Email рассылки отсутствуют в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ContactInformationMessages.EmailDistributionAddressWithSameNameAlreadyExists">
+            <summary>
+            Адрес Email рассылки с таким именем уже существует
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ContactInformationMessages.EmailDistributionAddressSaveDataCantBeeNull">
+            <summary>
+            Не переданы данные адреса Email рассылки для сохранения
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ContactInformationMessages.EmailDistributionAddressNameCantBeNullOrEmpty">
+            <summary>
+            Не задано дружественное имя адреса Email рассылки
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ContactInformationMessages.EmailDistributionAddressSenderEmailCantBeNullOrEmpty">
+            <summary>
+            Не задан Email адрес отправителя
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ContactInformationMessages.EmailDistributionAddressSmtpServerAddressCantBeNullOrEmpty">
+            <summary>
+            Не задан адрес SMTP сервера
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ContactInformationMessages.EmailDistributionAddressNameCantBeGreaterThen255">
+            <summary>
+            Дружественное имя адреса Email рассылки не может содержать более 255 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ContactInformationMessages.EmailDistributionAddressDescriptionCantBeGreaterThen4000">
+            <summary>
+            Описание адреса Email рассылки не может содержать более 4000 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ContactInformationMessages.EmailDistributionAddressSenderNameCantBeGreaterThen255">
+            <summary>
+            Имя отправителя не может содержать более 255 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ContactInformationMessages.EmailDistributionAddressSenderEmailAddressCantBeGreaterThen255">
+            <summary>
+            Email адрес отправителя не может содержать более 255 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ContactInformationMessages.EmailDistributionAddressSmtpServerAddressCantBeGreaterThen255">
+            <summary>
+            Адрес SMTP сервера не может содержать более 255 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ContactInformationMessages.EmailDistributionAddressSmtpServerPortCantBeLessThen0">
+            <summary>
+            Порт SMTP сервера не может являться отрицательным числом
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ContactInformationMessages.EmailDistributionAddressLoginCantBeGreaterThen255">
+            <summary>
+            Логин для входа на SMTP сервер не может содержать более 255 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ContactInformationMessages.EmailDistributionAddressPasswordCantBeGreaterThen255">
+            <summary>
+            Пароль для входа на SMTP сервер не может содержать более 255 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ContactInformationMessages.RecipientEMailAddressCantBeNullOrEmpty">
+            <summary>
+            Email адрес получателя не может быть пустым
+            </summary>
+        </member>
+        <member name="T:VVIInvestment.RusGuard.Globalization.Messages.DeviceSearchMessages">
+            <summary>
+            Сообщения, связанные с поиском устройств
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.DeviceSearchMessages.UsbCanConvertersListCantBeNullOrEmpty">
+            <summary>
+            Список Usb CAN конвертеров не может быть пустым.
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.DeviceSearchMessages.CanControllersListCantBeNullOrEmpty">
+            <summary>
+            Список CAN контроллеров не может быть пустым.
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.DeviceSearchMessages.NotExistsInDb">
+            <summary>
+            Устройство отсутствует в БД
+            </summary>
+        </member>
+        <member name="T:VVIInvestment.RusGuard.Globalization.Messages.EmployeePositionMessages">
+            <summary>
+            Сообщения, связанные с должностями сотрудников
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.EmployeePositionMessages.NotExistsInDb">
+            <summary>
+            Должность отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.EmployeePositionMessages.NameCantBeNullOrEmpty">
+            <summary>
+            Имя должности не должно быть пустым
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.EmployeePositionMessages.NameCantBeGreaterThen255">
+            <summary>
+            Имя должности не должно содержать больше 255 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.EmployeePositionMessages.PositionWithSameNameAlreadyExists">
+            <summary>
+            Должность с таким именем уже существует
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.EmployeePositionMessages.LoadListOperation">
+            <summary>
+            Загрузка списка должностей
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.EmployeePositionMessages.LoadListOperationCompletedSuccessful">
+            <summary>
+            Список должностей загружен
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.EmployeePositionMessages.DeleteListOperation">
+            <summary>
+            Удаление списка должностей
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.EmployeePositionMessages.DeleteListOperationCompletedSuccessful">
+            <summary>
+            Должности удалены
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.EmployeePositionMessages.DeletePhonesListOperation">
+            <summary>
+            Удаление списка телефонов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.EmployeePositionMessages.DeletePhonesListOperationCompletedSuccessful">
+            <summary>
+            телефонов удалены
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.EmployeePositionMessages.DeleteEmailesPhonesListOperation">
+            <summary>
+            Удаление списка email адресов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.EmployeePositionMessages.DeleteEmailesListOperationCompletedSuccessful">
+            <summary>
+            Email адреса удалены
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.EmployeePositionMessages.SavePositionOperation">
+            <summary>
+            Сохранение данных должности
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.EmployeePositionMessages.SavePositionOperationCompletedSuccessful">
+            <summary>
+            Данные должности сохранены
+            </summary>
+        </member>
+        <member name="T:VVIInvestment.RusGuard.Globalization.Messages.MapsWorkplaceMessages">
+            <summary>
+            Сообщения, связанные с модулем "Планы" рабочего места оператора
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.MapsWorkplaceMessages.MapNotExistsInDb">
+            <summary>
+            План отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.MapsWorkplaceMessages.DriverFigureNotExistsInDb">
+            <summary>
+            Визуальный объект устройства отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.MapsWorkplaceMessages.RootMapNotExistsInDb">
+            <summary>
+            Корневой план отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.MapsWorkplaceMessages.WorkplaceIsNotMapsWorkplace">
+            <summary>
+            Модуль рабочего места не является модулем \"Планы\"
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.MapsWorkplaceMessages.SaveDataIsNull">
+            <summary>
+            Не переданы данные плана для сохранения
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.MapsWorkplaceMessages.NameIsNullOrEmpty">
+            <summary>
+            Имя плана не должно быть пустым
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.MapsWorkplaceMessages.NameCantBeGreaterThen255">
+            <summary>
+            Имя плана не должно содержать более 255 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.MapsWorkplaceMessages.MapWithSameNameAlreadyExists">
+            <summary>
+            На текущем уровне иерархии уже присутствует план с таким именем
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.MapsWorkplaceMessages.LoadMapsOperation">
+            <summary>
+            Загрузка списка планов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.MapsWorkplaceMessages.LoadMapsOperationComplete">
+            <summary>
+            Загрузка списка планов завершена
+            </summary>
+        </member>
+        <member name="T:VVIInvestment.RusGuard.Globalization.Messages.PhotoidentificationMessages">
+            <summary>
+            Сообщения, связанные с рабочими местами операторов.
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.PhotoidentificationMessages.LoadScreemOperation">
+            <summary>
+            Загрузка ячеек экрана
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.PhotoidentificationMessages.LoadScreenOperationComplete">
+            <summary>
+            Загрузка ячеек экрана завершена
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.PhotoidentificationMessages.PhotoContentNotExistsInDb">
+            <summary>
+            Сведения о свойствах фотографии отсутствую в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.PhotoidentificationMessages.FieldPersonalDataIsEmpty">
+            <summary>
+            Одно или несколько полей с персональными данными не содержит данных
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.PhotoidentificationMessages.ColorFieldNotExistsInDb">
+            <summary>
+            Поле с цветом ячейки отсутствует в БД
+            </summary>
+        </member>
+        <member name="T:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages">
+            <summary>
+            Сообщения, связанные с реакциями
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.ReactionNotExistsInDB">
+            <summary>
+            Реакция отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.ActionTypeNotSupported">
+            <summary>
+            Неподдерживаемый тип действия реакции {0}
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.EventTypeNotSupported">
+            <summary>
+            Неподдерживаемый тип события реакции {0}
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.ReactionSaveDataIsNull">
+            <summary>
+            Не переданы данные реакции для сохранения
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.ReactionNameCantBeNullOrEmpty">
+            <summary>
+            Имя реакции не должно быть пустым
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.ReactionNameLenghtCantGreaterThen255">
+            <summary>
+            Имя реакции не должно содержать больше 255 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.ReactionDescriptionLenghtCantGreaterThen4000">
+            <summary>
+            Описание реакции не должно содержать больше 4000 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.ReactionWithSameAlreadyExists">
+            <summary>
+            Реакция с таким именем уже существует
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.ReactionActionNotExistsInDB">
+            <summary>
+            Действие реакции отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.ReactionEventNotExistsInDB">
+            <summary>
+            Событие реакции отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.ReactionActionSaveDataIsNull">
+            <summary>
+            Не переданы данные действия ракции для сохранения
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.ReactionEventSaveDataIsNull">
+            <summary>
+            Не переданы данные события реакции для сохранения
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.ReactionActioNameCantBeNullOrEmpty">
+            <summary>
+            Имя действия реакции не должно быть пустым
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.ReactionEventNameCantBeNullOrEmpty">
+            <summary>
+            Имя события реакции не должно быть пустым
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.ReactionActionNameCantBeGreaterThen255">
+            <summary>
+            Имя действия реакции не должно содержать более 255 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.ReactionEventNameCantBeGreaterThen255">
+            <summary>
+            Имя события реакции не должно содержать более 255 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.ReactionAlreadyContainsActionWithSameName">
+            <summary>
+            У реакции уже существует действие с таким именем
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.ReactionAlreadyContainsEventWithSameName">
+            <summary>
+            У реакции уже существует событие с таким именем
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.ActionTypeNotAllowAddToItEmployees">
+            <summary>
+            Тип действия реакции не позволяет добавлять в него сотрудников
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.EventTypeNotAllowAddToItEmployees">
+            <summary>
+            Тип события реакции не позволяет добавлять в него сотрудников
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.ActionTypeNotAllowRemoveFromItEmployees">
+            <summary>
+            Тип действия реакции не позволяет удалять из него сотрудников
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.EventTypeNotAllowRemoveFromItEmployees">
+            <summary>
+            Тип события реакции не позволяет удалять из него сотрудников
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.ActionTypeNotAllowGetEmployees">
+            <summary>
+            Тип действия реакции не может содержать сотрудников
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.EventTypeNotAllowGetEmployees">
+            <summary>
+            Тип события реакции не может содержать сотрудников
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.ActionTypeNotAllowGetEmployeeGroupss">
+            <summary>
+            Тип действия реакции не может содержать сотрудников
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.EventTypeNotAllowGetEmployeeGroupss">
+            <summary>
+            Тип события реакции не может содержать группы сотрудников
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.EventTypeNotAllowGetDrivers">
+            <summary>
+            Тип события реакции не может содержать драйверы
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.EventTypeNotAllowGetLogMessageSubtypes">
+            <summary>
+            Тип события реакции не может содержать подтипы событий системы
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.ActionTypeNotAllowAddToItEmployeeGroups">
+            <summary>
+            Тип действия реакции не позволяет добавлять в него группы сотрудников
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.EventTypeNotAllowAddToItEmployeeGroups">
+            <summary>
+            Тип события реакции не позволяет добавлять в него группы сотрудников
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.EventTypeNotAllowAddToItDrivers">
+            <summary>
+            Тип события реакции не позволяет добавлять в него драйверы
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.EventTypeNotAllowAddToItLogMessageSubtypes">
+            <summary>
+            Тип события реакции не позволяет добавлять в него подтипы событий системы
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.ActionTypeNotAllowRemoveFromItEmployeeGroups">
+            <summary>
+            Тип действия реакции не позволяет удалять из него группы сотрудников
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.EventTypeNotAllowRemoveFromItEmployeeGroups">
+            <summary>
+            Тип события реакции не позволяет удалять из него группы сотрудников
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.EventTypeNotAllowRemoveFromItDrivers">
+            <summary>
+            Тип события реакции не позволяет удалять из него группы сотрудников
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.EventTypeNotAllowRemoveFromItLogMessageSubtypes">
+            <summary>
+            Тип события реакции не позволяет удалять из него подтипы событий системы
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.SmsCustomTextCanNotBeGreaterThen500">
+            <summary>
+            Тест для посылки SMS не может содержать более 500 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.EmailCustomTextCanNotBeGreaterThen500">
+            <summary>
+            Тест для посылки email не может содержать более 4000 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.EmailDistributionAddressNotExists">
+            <summary>
+            Адрес Email рассылки не найден
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.GsmModemDriverNotFound">
+            <summary>
+            Драйвер GSM модема не найден
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.CameraDriverNotFound">
+            <summary>
+            Драйвер камеры не найден
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.DriverIsNotGsmModem">
+            <summary>
+            Драйвер не является драйвером GSM модема
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.DriverIsNotCamera">
+            <summary>
+            Драйвер не является драйвером камеры
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.FilePathCanNotBeGreaterThen260">
+            <summary>
+            Путь к файлу не может превышать 260 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.WorkingDirPathCanNotBeGreaterThen260">
+            <summary>
+            Путь к рабочей папке не может превышать 260 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.ArgsCanNotBeGreaterThen4000">
+            <summary>
+            Аргументы не могут содержать более 4000 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.RecordVideoDurationCanNotBeLessThen0">
+            <summary>
+            Длительность записываемого видео не может быть меньше ноля
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ReactionMessages.RecordVideoFromBufferDurationCanNotBeLessThen0">
+            <summary>
+            Длительность видео из предварительно записанного буфера, которое надо записать в начало ролика, не может быть меньше ноля
+            </summary>
+        </member>
+        <member name="T:VVIInvestment.RusGuard.Globalization.Messages.ScreenCellContentMessages">
+            <summary>
+            Сообщения, связанные с данными содержимого ячейки компоновки экрана
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ScreenCellContentMessages.ScreenCellContentSaveDataIsNull">
+            <summary>
+            Не переданны данные конфигурации содержимого ячейки
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ScreenCellContentMessages.PhotoIdentificationIsNotScreenCellContentType">
+            <summary>
+            Фотоидентификация не является содержимым ячейки
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ScreenCellContentMessages.CameraIsNotScreenCellContentType">
+            <summary>
+            Камера не является содержимым ячейки
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ScreenCellContentMessages.DriverIsNotCamera">
+            <summary>
+            Драйвер не является камерой
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ScreenCellContentMessages.CameraDriverNotExistsInDb">
+            <summary>
+            Драйвер камеры отсутствует в БД
+            </summary>
+        </member>
+        <member name="T:VVIInvestment.RusGuard.Globalization.Messages.ScreenLayoutMessages">
+            <summary>
+            Сообщения, связанные с данными компоновки экранов.
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ScreenLayoutMessages.ScreenLayoutNotExistsInDb">
+            <summary>
+            Экран отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ScreenLayoutMessages.ScreenLayoutSaveDataIsNull">
+            <summary>
+            Не переданы данные компоновки экрана
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ScreenLayoutMessages.ScreenLayoutNameIsNullOrEmpty">
+            <summary>
+            Имя экрана не должно быть пустым
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ScreenLayoutMessages.ScreenLayoutNameCantBeGreaterThen255">
+            <summary>
+            Имя экрана не должно содержать более 255 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ScreenLayoutMessages.WorkplaceModuleAlreadyHaveScreen">
+            <summary>
+            Модуль рабочего места уже содержит экран
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ScreenLayoutMessages.ParentScreenCellNotExistsInDb">
+            <summary>
+            Родительская ячейка отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ScreenLayoutMessages.ScreenCellNotExistsInDb">
+            <summary>
+            Ячейка отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ScreenLayoutMessages.OneOfScreenCellsNotExistsInDb">
+            <summary>
+            По крайней мере одна из ячеек отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ScreenLayoutMessages.ScreenCellSaveDataIsNull">
+            <summary>
+            Не переданы данные ячейки
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ScreenLayoutMessages.ScreenCellsSaveDataIsNull">
+            <summary>
+            Не переданы данные ячееек
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ScreenLayoutMessages.ScreenCellNameIsNullOrEmpty">
+            <summary>
+            Имя ячейки не должно быть пустым
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ScreenLayoutMessages.ScreenCellNameCantBeGreaterThen255">
+            <summary>
+            Имя ячейки не должно содержать более 255 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ScreenLayoutMessages.ScreenLayoutAlreadyHaveRootCell">
+            <summary>
+            Экран уже содержит корневую ячейку
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ScreenLayoutMessages.NotAllowedRemoveRootScreenCell">
+            <summary>
+            Нельзя удалять корневую ячейку экрана
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ScreenLayoutMessages.FieldNotExistsInDb">
+            <summary>
+            Поле с персональными данными отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.ScreenLayoutMessages.FieldExistsInDb">
+            <summary>
+            Такое поле уже существует в БД
+            </summary>
+        </member>
+        <member name="T:VVIInvestment.RusGuard.Globalization.Messages.SecurityUser2UserGroupMessages">
+            <summary>
+            Сообщения, связанные со связями пользователь-группа. (безопасность)
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.SecurityUser2UserGroupMessages.LoadingUsersForUserGroup">
+            <summary>
+            Загрузка пользователей, входящих в группу
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.SecurityUser2UserGroupMessages.LoadingUserGroupsForUser">
+            <summary>
+            Загрузка групп, членом которых является пользователь
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.SecurityUser2UserGroupMessages.CantBreakBuiltInUserAndUserGroups">
+            <summary>
+            Пользователь и одна из групп, из которой он исключается, являются встроенными участниками безопасности
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.SecurityUser2UserGroupMessages.CantBreakBuiltInUserGroupAndUser">
+            <summary>
+            Группа и один из исключаемых из нее пользователей являются встроенными участниками безопасности
+            </summary>
+        </member>
+        <member name="T:VVIInvestment.RusGuard.Globalization.Messages.SecurityUserGroupMessages">
+            <summary>
+            Сообщения, связанные с группами (безопасность)
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.SecurityUserGroupMessages.NotExistsInDb">
+            <summary>
+            Группа отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.SecurityUserGroupMessages.PartOfUserGroupsNotExistsInDb">
+            <summary>
+            Часть групп отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.SecurityUserGroupMessages.LoadingUserGroupData">
+            <summary>
+            Загрузка данных группы
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.SecurityUserGroupMessages.GroupWithSameNameAlreadyExists">
+            <summary>
+            Группа с таким именем уже существует
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.SecurityUserGroupMessages.GroupNameCantBeNullOrEmpty">
+            <summary>
+            Имя группы не может быть пустым
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.SecurityUserGroupMessages.GroupNameCantBeGreaterThen255">
+            <summary>
+            Имя группы не может должно содержать больше 255 символов
+            </summary>
+        </member>
+        <member name="T:VVIInvestment.RusGuard.Globalization.Messages.SecurityUserMessages">
+            <summary>
+            Сообщения, связанные с пользователями (безопасность)
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.SecurityUserMessages.NotExistsInDb">
+            <summary>
+            Пользователь отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.SecurityUserMessages.PartOfUsersNotExistsInDb">
+            <summary>
+            Часть пользователей отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.SecurityUserMessages.LoadingUserData">
+            <summary>
+            Загрузка данных пользователя
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.SecurityUserMessages.AllUserDataLoaded">
+            <summary>
+            Все данные пользователя загружены
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.SecurityUserMessages.UserWithSameLoginAlreadyExists">
+            <summary>
+            Пользователь с таким логином уже существует
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.SecurityUserMessages.UserLoginCantBeNullOrEmpty">
+            <summary>
+            Логин пользователя не должен быть пустым
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.SecurityUserMessages.UserLoginCantBeGreaterThen255">
+            <summary>
+            Логин пользователя не должен содержать больше 255 символов
+            </summary>
+        </member>
+        <member name="T:VVIInvestment.RusGuard.Globalization.Messages.UserPassMessages">
+            <summary>
+            Сообщения, связанные с шаблонами пропусков
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.UserPassMessages.UserPassNotExistsInDb">
+            <summary>
+            Шаблон пропуска отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.UserPassMessages.PassSaveDataIsNull">
+            <summary>
+            Не переданы данные шаблона пропуска для сохранения
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.UserPassMessages.PassEditorSaveDataIsNull">
+            <summary>
+            Не переданы данные элемента управления шаблона пропуска для сохранения
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.UserPassMessages.PassNameCantBeNullOrEmpty">
+            <summary>
+            Имя шаблона пропуска не должно быть пустым
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.UserPassMessages.PassNameLenghtCantGreaterThen255">
+            <summary>
+            Имя шаблона пропуска не должно содержать больше 255 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.UserPassMessages.PassDescriptionLenghtCantGreaterThen4000">
+            <summary>
+            Описание шаблона пропуска не должно содержать больше 4000 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.UserPassMessages.PassWithSameAlreadyExists">
+            <summary>
+            Шаблона пропуска с таким именем уже существует
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.UserPassMessages.PassNotExistsInDB">
+            <summary>
+            Шаблона пропуска отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.UserPassMessages.PassEditorNotExistsInDB">
+            <summary>
+            Элемент управления шаблона пропуска отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.UserPassMessages.PartOfPassesNotExistsInDb">
+            <summary>
+            Часть шаблонов пропусков отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.UserPassMessages.PassWithSameNameAlreadyExists">
+            <summary>
+            Шаблона пропуска с таким именем уже существует у группы сотрудников
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.UserPassMessages.WidthPassError">
+            <summary>
+            Ширина пропуска меньше единицы
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.UserPassMessages.HeghtPassError">
+            <summary>
+            Высота пропуска меньше единицы
+            </summary>
+        </member>
+        <member name="T:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages">
+            <summary>
+            Сообщения, связанные с рабочими местами операторов.
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.NotExistsInDb">
+            <summary>
+            Рабочее место отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.WorkplaceIsBuiltInAndCannotBeChanged">
+            <summary>
+            Рабочее место является встроенным системным рабочим местом. Изменение параметров рабочего места запрещено.
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.WorkplaceIsBuiltInAndCannotBeRemoved">
+            <summary>
+            Рабочее место является встроенным системным рабочим местом. Удаление рабочего места запрещено.
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.CannotAddModuleIntoBuiltinWorkplace">
+            <summary>
+            Рабочее место является встроенным системным рабочим местом. Добавление модулей запрещено.
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.CannotChangeModuleContainedInBuiltinWorkplace">
+            <summary>
+            Модуль содержится во встроенном системном рабочем месте. Изменение параметров модуля запрещено.
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.CannotRemoveModuleContainedInBuiltinWorkplace">
+            <summary>
+            Модуль содержится во встроенном системном рабочем месте. Удаление модуля запрещено.
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.SaveDataIsNull">
+            <summary>
+            Не переданы данные рабочего места для сохранения
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.NameIsNullOrEmpty">
+            <summary>
+            Имя рабочего места не должно быть пустым
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.NameCantBeGreaterThen255">
+            <summary>
+            Имя рабочего места не должно содержать более 255 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.WorkplaceWithSameNameAlreadyExists">
+            <summary>
+            Рабочее место с таким именем уже существует
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.LoadWorkplacListOperation">
+            <summary>
+            Загрузка списка рабочих мест
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.LoadPhotoListOperation">
+            <summary>
+            Загрузка списка фотографий
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.LoadPhotoListOperationComplete">
+            <summary>
+            Загрузка списка фотографий завершена
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.LoadWorkplacListOperationComplete">
+            <summary>
+            Загрузка списка рабочих мест завершена
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.LoadAcsConfiguratorOperation">
+            <summary>
+            Загрузка настроек модуля
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.LoadAcsConfiguratorOperationComplete">
+            <summary>
+            Загрузка списка фотографий завершена
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.AddMapOperation">
+            <summary>
+            Добавление плана
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.AddMapOperationComplete">
+            <summary>
+            Добавление плана завершено
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.SaveAcsConfiguratorSettingOperation">
+            <summary>
+            Сохранение настроек модуля
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.SaveAcsConfiguratorSettingOperationComplete">
+            <summary>
+            Сохранение настроек модуля завершено
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.RemoveFigureOperation">
+            <summary>
+            Удаление визуального объекта устройства из плана
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.RemoveFigureOperationComplete">
+            <summary>
+            Удаление визуального объекта устройства из плана завершено
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.AddFigureOperation">
+            <summary>
+            Добавление визуального объекта устройства на план
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.AddFigureOperationComplete">
+            <summary>
+            Добавление визуального объекта устройства на план завершено
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.EditFigureOperation">
+            <summary>
+            Обновление визуальных объеков устройств на плане
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.EditFigureOperationComplete">
+            <summary>
+            Обновление визуальных объеков устройств на плане завершено
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.AddWorkplaceModuleOperation">
+            <summary>
+            Добавление модуля
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.AddWorkplaceModuleOperationComplete">
+            <summary>
+            Добавление модуля завершено
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.AddWorkplaceOperation">
+            <summary>
+            Добавление рабочего места
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.AddWorkplaceOperationComplete">
+            <summary>
+            Добавление рабочеего место завершено
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.DeleteWorkplaceOperation">
+            <summary>
+            Удаление рабочего места
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.DeleteWorkplaceOperationComplete">
+            <summary>
+            Удаление рабочего места завершено
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.DeleteWorkplaceModuleOperation">
+            <summary>
+            Удаление модуля
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.DeleteWorkplaceModuleOperationComplete">
+            <summary>
+            Удаление модуля завершено
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.DeleteMapOperation">
+            <summary>
+            Удаление плана
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.DeleteMapOperationComplete">
+            <summary>
+            Удаление плана завершено
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.SaveWorkplaceOperation">
+            <summary>
+            Сохранение настроек  рабочего места
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.SaveWorkplaceOperationComplete">
+            <summary>
+            Сохранение настроек  рабочего места завершено
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.SaveWorkplaceModuleOperation">
+            <summary>
+            Сохранение настроек  модуля
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.SaveWorkplaceModuleOperationComplete">
+            <summary>
+            Сохранение настроек  модуля завершено
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.SaveMapOperation">
+            <summary>
+            Сохранение настроек плана
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.SaveMapOperationComplete">
+            <summary>
+            Сохранение настроек плана завершено
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.SaveScreenOperation">
+            <summary>
+            Сохранение настроек плана
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.SaveScreenOperationComplete">
+            <summary>
+            Сохранение настроек плана завершено
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.SaveScreenCellsOperation">
+            <summary>
+            Сохранение настроек плана
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.SaveScreenCellsOperationComplete">
+            <summary>
+            Сохранение настроек плана завершено
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.GetMapImageOperation">
+            <summary>
+            Получение изображения плана
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.GetMapImageOperationComplete">
+            <summary>
+            Изображения плана получено
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.UpdateMapImageOperation">
+            <summary>
+            Обновление изображения план
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.UpdateMapImageOperationComplete">
+            <summary>
+            Обновление изображения плана завершено
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.GetDriversOperation">
+            <summary>
+            Получение устройств
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceMessages.GetDriversOperationComplete">
+            <summary>
+            Получение устройств завершено
+            </summary>
+        </member>
+        <member name="T:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceModuleMessages">
+            <summary>
+            Сообщения, связанные с модулями рабочих мест операторов.
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceModuleMessages.NotExistsInDb">
+            <summary>
+            Модуль рабочего места отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceModuleMessages.PhotoContentNotExistsInDb">
+            <summary>
+            Поле для хранения фотографии отсутствует в БД
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceModuleMessages.PhotoContentNotExistsInDbOrModule">
+            <summary>
+            Поле для хранения фотографии отсутствует в БД или такого модуля не существует
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceModuleMessages.SaveDataIsNull">
+            <summary>
+            Не переданы данные модуля рабочего места для сохранения
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceModuleMessages.NameIsNullOrEmpty">
+            <summary>
+            Имя модуля рабочего места не должно быть пустым
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceModuleMessages.NameCantBeGreaterThen255">
+            <summary>
+            Имя модуля рабочего места не должно содержать более 255 символов
+            </summary>
+        </member>
+        <member name="F:VVIInvestment.RusGuard.Globalization.Messages.WorkplaceModuleMessages.WorkplaceAlreadyContainsModuleWithSameName">
+            <summary>
+            Рабочее место уже содержит модуль с таким именем
+            </summary>
+        </member>
+    </members>
+</doc>
