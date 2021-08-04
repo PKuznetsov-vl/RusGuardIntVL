@@ -39,16 +39,18 @@ namespace WcfService1
     {
         ErrorData errorData = new ErrorData();
 
-        private static string ServiceUrl = App_Code.Initialize.AppInitialize();
+        private static string ServiceUrl = App_Code.Initialize.AppInitializeConn();
+        private static string Login = App_Code.Initialize.AppInitializeLogin();
+        private static string Pass = App_Code.Initialize.AppInitializePass();
 
         private static readonly ChannelContainer<ILNetworkService> NetworkService = new ChannelContainer<ILNetworkService>(
-            "Admin",
-            "",
+           Login,
+            Pass,
             WCFBindingFactory.CreateUnlimitedBasicHttpBinding(BasicHttpSecurityMode.TransportWithMessageCredential));
 
         private static readonly ChannelContainer<ILNetworkConfigurationService> NetworkCnfgService = new ChannelContainer<ILNetworkConfigurationService>(
-            "Admin",
-            "",
+            Login,
+           Pass,
             WCFBindingFactory.CreateUnlimitedBasicHttpBinding(BasicHttpSecurityMode.TransportWithMessageCredential));
         #region
 
@@ -75,7 +77,7 @@ namespace WcfService1
         public string ReturnGetAcsAccessLevels1()
         {
             // var res = GetAcsAccessLevels();
-            return string.Format(App_Code.Initialize.AppInitialize().ToString());
+            return string.Format(App_Code.Initialize.AppInitializeConn().ToString());
 
         }
         public Stream ReturnGetAcsAccessLevels()
