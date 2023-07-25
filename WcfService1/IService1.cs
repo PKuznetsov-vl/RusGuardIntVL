@@ -31,9 +31,11 @@ namespace WcfService1
         string ReturnGetAcsAccessLevels1();
         [OperationContract]
         [WebGet(UriTemplate = "/GetAcsAccessLevels", ResponseFormat = WebMessageFormat.Json)]
+
         Stream ReturnGetAcsAccessLevels();
         [OperationContract]
         [WebGet(UriTemplate = "/GetAcsEmployeeGroups", ResponseFormat = WebMessageFormat.Json)]
+
         Stream ReturnGetAcsEmployeeGroups();
         [OperationContract]
         [WebGet(UriTemplate = "/GetGuestEmployeeGroup?GuidId={GuidId}", ResponseFormat = WebMessageFormat.Json)]
@@ -52,10 +54,15 @@ namespace WcfService1
 
         [WebGet(UriTemplate = "/GetEmployeeKeys?PersonGuidId={value}", ResponseFormat = WebMessageFormat.Json)]
         Stream ReturnEmployeeKeys(string value);
+
         [OperationContract]
         [WebGet(UriTemplate = "/GetPhotoEmployee?PersonGuidId={employeeId}&photoNumber={photoNumber}", ResponseFormat =WebMessageFormat.Json)     ]
         string GetSetAcsEmployeePhoto(string employeeId, int photoNumber);
+
+        [OperationContract]
+        [WebGet(UriTemplate = "/GetAcsEmployeePhotoInfos?ShowRemPersons={value}", ResponseFormat = WebMessageFormat.Json)]
         
+        Stream ReturnGetAcsEmployeePhotoInfos(Boolean value);
 
         [OperationContract]
         [WebInvoke(Method = "POST", UriTemplate = "/LockAcsEmployee",
