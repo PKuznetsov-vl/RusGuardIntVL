@@ -509,7 +509,7 @@ HttpStatusCode.BadRequest;
                 throw;
             }
             //По крайне мере один из сотрудников, чей идентификатор передан в id отсутствует в базе
-            catch (FaultException<DataNotFoundException>) 
+            catch (FaultException<DataNotFoundException>)
             {
 
                 throw;
@@ -524,7 +524,7 @@ HttpStatusCode.BadRequest;
                 //IncludeRemPesrons = Convert.ToBoolean(toBoolean);
                 Validate();
                 RemoveAcsEmployee(GuidSerialize(employeeId));
-                string output ="{Status:\"OK\"}";
+                string output = "{Status:\"OK\"}";
                 return new MemoryStream(Encoding.UTF8.GetBytes(output));
             }
             catch (Exception Exp)
@@ -540,7 +540,7 @@ HttpStatusCode.BadRequest;
         {
             try
             {
-                NetworkCnfgService.InvokeAction(_ => _.AddAcsEmployee(employeeGroupID:GroupId, data:data), ServiceUrl);
+                NetworkCnfgService.InvokeAction(_ => _.AddAcsEmployee(employeeGroupID: GroupId, data: data), ServiceUrl);
 
             }
             //параметр id пустой или null
@@ -554,22 +554,20 @@ HttpStatusCode.BadRequest;
                 throw;
             }
         }
-        
 
-        public Stream PostCreateEmployee(string GroupId)
+
+        public Stream PostCreateEmployee(EmpType Empinfo)
         {
             try
             {
-                Guid ID = GuidSerialize(GroupId);
+                Guid ID = GuidSerialize(Empinfo.GroupID);
                 //IncludeRemPesrons = Convert.ToBoolean(toBoolean);
                 Validate();
-               var EmpData = new AcsEmployeeSaveData();
-                EmpData.FirstName = "Tst";
-                EmpData.SecondName = "Tst";
-                EmpData.LastName = "Tst";
-                //EmpData.Number = 100;
-                СreateEmployee(ID,EmpData);
-                //string output = JsonConvert.SerializeObject("{Status:'OK'}");
+                var EmpData = new AcsEmployeeSaveData();
+                EmpData.FirstName = Empinfo.EmployeeFirstName;
+                EmpData.SecondName = Empinfo.EmployeeSecondName;
+                EmpData.LastName = Empinfo.EmployeeLastName;
+                СreateEmployee(ID, EmpData);
                 return new MemoryStream(Encoding.UTF8.GetBytes("{Status:\"OK\"}"));
             }
             catch (Exception Exp)
@@ -582,11 +580,11 @@ HttpStatusCode.BadRequest;
             }
         }
 
-        public static void ManagePhoto(Guid Id ,byte[] photo, int num = 1)
+        public static void ManagePhoto(Guid Id, byte[] photo, int num = 1)
         {
             try
             {
-                NetworkCnfgService.InvokeAction(_ => _.SetAcsEmployeePhoto(employeeId: Id, photoNumber: num,data:photo ), ServiceUrl);
+                NetworkCnfgService.InvokeAction(_ => _.SetAcsEmployeePhoto(employeeId: Id, photoNumber: num, data: photo), ServiceUrl);
 
             }
             //параметр id пустой или null
@@ -603,21 +601,21 @@ HttpStatusCode.BadRequest;
 
 
 
- 
 
 
-       public Stream PostPhoto(PhotoType stream)
+
+        public Stream PostPhoto(PhotoType stream)
         {
             try
             {
                 Validate();
-                
+
                 string emid = stream.EmployeeId;
                 Guid id = GuidSerialize(emid);
-               var photoString = stream.EmployeePhoto;
+                var photoString = stream.EmployeePhoto;
                 byte[] photo = Convert.FromBase64String(photoString);
                 ManagePhoto(id, photo);
-                return new MemoryStream(Encoding.UTF8.GetBytes($"{{Status:{stream.EmployeeId+"sd" +stream.EmployeePhoto}}}"));
+                return new MemoryStream(Encoding.UTF8.GetBytes($"{{Status:{stream.EmployeeId + "sd" + stream.EmployeePhoto}}}"));
             }
             catch (Exception Exp)
             {
