@@ -37,31 +37,42 @@ namespace WcfService1
         [WebGet(UriTemplate = "/GetAcsEmployeeGroups", ResponseFormat = WebMessageFormat.Json)]
 
         Stream ReturnGetAcsEmployeeGroups();
+        
         [OperationContract]
         [WebGet(UriTemplate = "/GetGuestEmployeeGroup?GuidId={GuidId}", ResponseFormat = WebMessageFormat.Json)]
         Stream ReturnGetGuestEmployeeGroup(string GuidId);
+        
         [OperationContract]
-        [WebGet(UriTemplate = "/GetAcsEmployeesInGroup?GroupId={value}",ResponseFormat =WebMessageFormat.Json)]
+        [WebGet(UriTemplate = "/GetAcsEmployeesInGroup?GroupId={value}", ResponseFormat = WebMessageFormat.Json)]
         Stream ReturnGetAcsEmployeesInGroup(string value);
+        
         [OperationContract]
         [WebGet(UriTemplate = "/GetAcsEmployeesByTableNumbers?TableNum={value}", ResponseFormat = WebMessageFormat.Json)]
         Stream ReturnGetAcsEmployeesByTableNumbers(string value);
+        
         [OperationContract]
-
-        [WebGet(UriTemplate = "/GetAcsEmployee?PersonGuidId={value}",ResponseFormat =WebMessageFormat.Json,BodyStyle =WebMessageBodyStyle.Bare)]
+        [WebGet(UriTemplate = "/GetAcsEmployee?PersonGuidId={value}", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
         Stream ReturnGetAcsEmployee(string value);
+        
         [OperationContract]
-
         [WebGet(UriTemplate = "/GetEmployeeKeys?PersonGuidId={value}", ResponseFormat = WebMessageFormat.Json)]
         Stream ReturnEmployeeKeys(string value);
+       
+        [OperationContract]
+        [WebGet(UriTemplate = "/RemoveEmployee?PersonGuidID={value}", ResponseFormat = WebMessageFormat.Json)]
+        Stream ReturnRemoveAcsEmployee(string value);
 
         [OperationContract]
-        [WebGet(UriTemplate = "/GetPhotoEmployee?PersonGuidId={employeeId}&photoNumber={photoNumber}", ResponseFormat =WebMessageFormat.Json)     ]
+        [WebGet(UriTemplate = "/CreateEmployee?GroupID={value}", ResponseFormat = WebMessageFormat.Json)]
+        Stream PostCreateEmployee(string value);
+
+        [OperationContract]
+        [WebGet(UriTemplate = "/GetPhotoEmployee?PersonGuidId={employeeId}&photoNumber={photoNumber}", ResponseFormat = WebMessageFormat.Json)]
         string GetSetAcsEmployeePhoto(string employeeId, int photoNumber);
 
         [OperationContract]
         [WebGet(UriTemplate = "/GetAcsEmployeePhotoInfos?ShowRemPersons={value}", ResponseFormat = WebMessageFormat.Json)]
-        
+
         Stream ReturnGetAcsEmployeePhotoInfos(Boolean value);
 
         [OperationContract]
@@ -69,9 +80,21 @@ namespace WcfService1
              RequestFormat = WebMessageFormat.Json,
              ResponseFormat = WebMessageFormat.Json,
              BodyStyle = WebMessageBodyStyle.Bare)]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
-      
 
+        CompositeType GetDataUsingDataContract(CompositeType composite);
+
+        
+       
+
+
+        [OperationContract]
+        [WebInvoke(Method = "POST", UriTemplate = "/SetEmpPhoto",
+             RequestFormat = WebMessageFormat.Json,
+             ResponseFormat = WebMessageFormat.Json,
+             BodyStyle = WebMessageBodyStyle.Bare
+            )]
+
+        Stream PostPhoto(PhotoType stream);
         #region
         /*    [OperationContract]
             [WebInvoke(Method = "POST", 
@@ -92,11 +115,20 @@ namespace WcfService1
     {
         [DataMember]
         public string StringValue;
+        [DataMember]
         public bool BoolValue;
 
     }
-  
-   
+
+    [DataContract]
+    public class PhotoType
+    {
+        [DataMember]
+        public string EmployeeId;
+        [DataMember]
+        public string EmployeePhoto;
 
     }
+
+}
 
