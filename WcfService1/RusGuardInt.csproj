@@ -219,6 +219,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="docs\SwaggerEditor.html" />
     <Content Include="IntegrationService.svc">
       <BrowseToURL>~/Service1.svc</BrowseToURL>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -257,9 +258,8 @@
     <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="docs\swagger.yaml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="docs\rusguard_openapi2.yaml" />
+    <Content Include="docs\rusguard_openapi3_0.yaml" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -1,0 +1,320 @@
+openapi: 3.0.1
+info:
+  title: Rusguard wcf service
+  version: 1.0.0.0
+servers:
+- url: http://localhost/IntegrationService.svc
+- url: https://localhost/IntegrationService.svc
+paths:
+  /GetAcsAccessLevels:
+    get:
+      tags:
+      - IntegrationService.svc
+      summary: Get all access levels
+      responses:
+        200:
+          description: json of all access levels and their guids
+          content: {}
+        failed:
+          description: resource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stream'
+  /GetAcsEmployeeGroups:
+    get:
+      tags:
+      - IntegrationService.svc
+      summary: Get Access levels in EmployeeGroups
+      responses:
+        200:
+          description: json of Access levels in EmployeeGroups and their guids
+          content: {}
+        failed:
+          description: failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stream'
+  /GetGuestEmployeeGroup?GuidId={GuidId}:
+    get:
+      tags:
+      - IntegrationService.svc
+      summary: Get Guest Group
+      parameters:
+      - name: GuidId
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: json of Guest Group
+          content: {}
+        failed:
+          description: failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stream'
+  /GetAcsEmployeesInGroup?GroupId={value}:
+    get:
+      tags:
+      - IntegrationService.svc
+      summary: Get Employees In Group
+      parameters:
+      - name: value
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: OK
+          content: {}
+        default:
+          description: failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stream'
+  /GetAcsEmployeesByTableNumbers?TableNum={value}:
+    get:
+      tags:
+      - IntegrationService.svc
+      summary: Return Employees Access By Table Numbers
+      parameters:
+      - name: value
+        in: query
+        required: true
+        schema: {}
+      responses:
+        200:
+          description: json of Employees Access By Table Numbers
+          content: {}
+        default:
+          description: failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stream'
+  /GetAcsEmployee?PersonGuidId={value}:
+    get:
+      tags:
+      - IntegrationService.svc
+      summary: Get Employee short info
+      parameters:
+      - name: value
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: json of Employee short info
+          content: {}
+        failed:
+          description: failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stream'
+  /GetEmployeeKeys?PersonGuidId={value}:
+    get:
+      tags:
+      - IntegrationService.svc
+      summary: Return Employee Keys(additional info)
+      parameters:
+      - name: value
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: json of Employee Keys(additional info)
+          content: {}
+        failed:
+          description: failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stream'
+  /GetSetAcsEmployeePhotoGetPhotoEmployee?PersonGuidId={employeeId}&photoNumber={photoNumber}:
+    get:
+      tags:
+      - IntegrationService.svc
+      summary: GetSetAcsEmployeePhoto
+      parameters:
+      - name: PersonGuidId
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: photoNumber
+        in: query
+        required: true
+        schema: {}
+      responses:
+        200:
+          description: base64 string
+          content:
+            application/json:
+              schema:
+                type: string
+        default:
+          description: failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stream'
+  /GetAcsEmployeePhotoInfos?ShowRemPersons={value}:
+    get:
+      tags:
+      - IntegrationService.svc
+      summary: Get info about Employee Photo
+      parameters:
+      - name: ShowRemPersons
+        in: query
+        schema: {}
+      responses:
+        200:
+          description: base64 string
+          content:
+            application/json:
+              schema:
+                type: string
+        default:
+          description: failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stream'
+  /RemoveEmployee?PersonGuidID={value}:
+    get:
+      tags:
+      - IntegrationService.svc
+      summary: Remove Employee
+      parameters:
+      - name: value
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: OK
+          content: {}
+        failed:
+          description: failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stream'
+  /CreateEmployee:
+    post:
+      tags:
+      - IntegrationService.svc
+      summary: Create Employee
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmpType'
+        required: true
+      responses:
+        200:
+          description: OK
+          content: {}
+        failed:
+          description: failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stream'
+      x-codegen-request-body-name: value
+  /LockAcsEmployee:
+    post:
+      tags:
+      - IntegrationService.svc
+      summary: Lock Employee
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompositeType'
+        required: false
+      responses:
+        200:
+          description: OK
+          content: {}
+        default:
+          description: failed
+          content:
+            application/json:
+              schema:
+                type: string
+      x-codegen-request-body-name: composite
+  /SetEmpPhoto:
+    post:
+      tags:
+      - IntegrationService.svc
+      summary: Set Employee Photo
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PhotoType'
+        required: false
+      responses:
+        200:
+          description: OK
+          content: {}
+        default:
+          description: failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stream'
+      x-codegen-request-body-name: composite
+components:
+  schemas:
+    Stream:
+      type: object
+      properties:
+        ErrorMessage:
+          type: string
+          format: string
+    CompositeType:
+      type: object
+      properties:
+        StringValue:
+          type: string
+          format: string
+        BoolValue:
+          type: boolean
+          format: boolean
+    PhotoType:
+      type: object
+      properties:
+        EmployeeId:
+          type: string
+          format: string
+        EmployeePhoto:
+          type: string
+          format: base64 string
+    EmpType:
+      type: object
+      properties:
+        GroupID:
+          type: string
+          format: string
+        EmployeeFirstName:
+          type: string
+          format: base64 string
+        EmployeeSecondName:
+          type: string
+          format: base64 string
+        EmployeeLastName:
+          type: string
+          format: base64 string

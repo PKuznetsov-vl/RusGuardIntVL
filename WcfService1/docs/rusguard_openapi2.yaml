@@ -1,0 +1,323 @@
+swagger: '2.0'
+info:
+  title: Rusguard wcf service
+  version: "1.0.0.0"
+host: localhost
+schemes:
+  - http
+  - https
+basePath: /IntegrationService.svc
+paths:
+  /GetAcsAccessLevels:
+    get:
+      summary: Get all access levels
+      produces:
+        - application/json
+      tags:
+        - IntegrationService.svc
+      responses:
+        200:
+          description: json of all access levels and their guids
+        failed:
+          description: resource not found
+          schema:
+             $ref: "#/definitions/Stream"
+       
+  /GetAcsEmployeeGroups:
+    get:
+      summary: Get Access levels in EmployeeGroups
+      consumes:
+        - application/xml
+      produces:
+        - application/json
+      tags:
+        - IntegrationService.svc
+      responses:
+        200:
+          description: json of Access levels in EmployeeGroups and their guids        
+        failed:
+          description: failed
+          schema:
+             $ref: "#/definitions/Stream"
+  /GetGuestEmployeeGroup?GuidId={GuidId}:
+    get:
+      summary: Get Guest Group
+      produces:
+        - application/json
+      parameters:
+        - name: GuidId
+          in: query
+          required: true
+          type: "string"
+      tags:
+        - IntegrationService.svc
+      responses:
+        200:
+          description: json of Guest Group
+        failed:
+          description: failed
+          schema:
+            $ref: "#/definitions/Stream"
+  /GetAcsEmployeesInGroup?GroupId={value}:
+    get:
+      summary: Get Employees In Group
+      produces:
+        - application/json
+      parameters:
+        - name: value
+          in: query
+          required: true
+          type: "string"
+      tags:
+        - IntegrationService.svc
+      responses:
+        200:
+          description: OK
+        default:
+          description: failed
+          schema:
+            $ref: "#/definitions/Stream"
+  /GetAcsEmployeesByTableNumbers?TableNum={value}:
+    get:
+      summary: Return Employees Access By Table Numbers
+      produces:
+        - application/json
+      parameters:
+        - name: value
+          in: query
+          required: true
+          type: "int"
+      tags:
+        - IntegrationService.svc
+      responses:
+        200:
+          description: json of Employees Access By Table Numbers
+        default:
+          description: failed
+          schema:
+            $ref: "#/definitions/Stream"
+  /GetAcsEmployee?PersonGuidId={value}:
+    get:
+      summary: Get Employee short info 
+      produces:
+        - application/json
+      parameters:
+        - name: value
+          in: query
+          required: true
+          type: "string"
+      tags:
+        - IntegrationService.svc
+      responses:
+        200:
+          description: json of Employee short info
+        failed:
+          description: failed
+          schema:
+            $ref: "#/definitions/Stream"
+  /GetEmployeeKeys?PersonGuidId={value}:
+    get:
+      summary: Return Employee Keys(additional info)
+      consumes:
+        - application/xml
+      produces:
+        - application/json
+      parameters:
+        - name: value
+          in: query
+          required: true
+          type: "string"
+      tags:
+        - IntegrationService.svc
+      responses:
+        200:
+          description: json of Employee Keys(additional info)
+        failed:
+          description: failed
+          schema:
+            $ref: "#/definitions/Stream"
+  /GetSetAcsEmployeePhotoGetPhotoEmployee?PersonGuidId={employeeId}&photoNumber={photoNumber}:
+    get:
+      summary: GetSetAcsEmployeePhoto
+      produces:
+        - application/json
+      parameters:
+        - name: PersonGuidId
+          in: query
+          required: true
+          type: "string"
+        - name: photoNumber
+          in: query
+          required: true
+          type: "int"
+      tags:
+        - IntegrationService.svc
+      responses:
+        200:
+          description: base64 string
+          schema:
+            type: "string"
+        default:
+          description: failed
+          schema:
+            $ref: "#/definitions/Stream"
+  /GetAcsEmployeePhotoInfos?ShowRemPersons={value}:
+    get:
+      summary: Get info about Employee Photo
+      produces:
+        - application/json
+      parameters:
+        - name: ShowRemPersons
+          in: query
+          required: false
+          type: "bool"
+      tags:
+        - IntegrationService.svc
+      responses:
+        200:
+          description: base64 string
+          schema:
+            type: "string"
+        default:
+          description: failed
+          schema:
+            $ref: "#/definitions/Stream"
+  /RemoveEmployee?PersonGuidID={value}:
+    get:
+      summary: Remove Employee
+      consumes:
+        - application/xml
+      produces:
+        - application/json
+      parameters:
+        - name: value
+          in: query
+          required: true
+          type: "string"
+      tags:
+        - IntegrationService.svc
+      responses:
+        200:
+          description: OK
+        failed:
+          description: failed
+          schema:
+            $ref: "#/definitions/Stream"
+  /CreateEmployee:
+    post:
+      summary: Create Employee
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+      - name: value
+        in: body
+        required: True
+        schema:
+            $ref: "#/definitions/EmpType"
+      tags:
+        - IntegrationService.svc
+      responses:
+        200:
+          description: OK
+        failed:
+          description: failed
+          schema:
+            $ref: "#/definitions/Stream"
+  
+  /LockAcsEmployee:
+    post:
+      summary: Lock Employee
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: composite
+          in: body
+          required: false
+          schema:
+            $ref: "#/definitions/CompositeType"
+      tags:
+        - IntegrationService.svc
+      responses:
+        200:
+          description: OK
+        default:
+          description: failed
+          schema:
+            type: "string"
+
+  /SetEmpPhoto:
+    post:
+      summary: Set Employee Photo 
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: composite
+          in: body
+          required: false
+          schema:
+            $ref: "#/definitions/PhotoType"
+      tags:
+        - IntegrationService.svc
+      responses:
+        200:
+          description: OK
+        default:
+          description: failed
+          schema:
+            $ref: "#/definitions/Stream"
+
+definitions:
+  Stream:
+    type: object
+    properties:
+    
+      ErrorMessage:
+        type: "string"
+        format: string
+  
+  CompositeType:
+    type: object
+    properties:
+    
+      StringValue:
+        type: "string"
+        format: string
+      BoolValue:
+        type: "boolean"
+        format: boolean
+
+  PhotoType:
+    type: object
+    properties:
+    
+      EmployeeId:
+        type: "string"
+        format: string
+      EmployeePhoto:
+        type: "string"
+        format: base64 string     
+
+  EmpType:
+    type: object
+    properties:
+    
+      GroupID:
+        type: "string"
+        format: string
+      EmployeeFirstName:
+        type: "string"
+        format: base64 string
+      EmployeeSecondName:
+        type: "string"
+        format: base64 string
+      EmployeeLastName:
+        type: "string"
+        format: base64 string      
+      
+      
