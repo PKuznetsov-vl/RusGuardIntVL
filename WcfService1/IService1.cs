@@ -85,7 +85,7 @@ namespace WcfService1
              ResponseFormat = WebMessageFormat.Json,
              BodyStyle = WebMessageBodyStyle.Bare
             )]
-        Stream PostCreateEmployee(string value);
+        Stream PostPhoto(PhotoType value);
 
 
         [OperationContract]
@@ -95,7 +95,7 @@ namespace WcfService1
              BodyStyle = WebMessageBodyStyle.Bare
             )]
 
-        Stream PostPhoto(EmpType stream);
+        Stream PostCreateEmployee(EmpType stream);
         #region
         /*    [OperationContract]
             [WebInvoke(Method = "POST", 

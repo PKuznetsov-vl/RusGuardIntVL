@@ -564,11 +564,12 @@ HttpStatusCode.BadRequest;
                 //IncludeRemPesrons = Convert.ToBoolean(toBoolean);
                 Validate();
                 var EmpData = new AcsEmployeeSaveData();
+                Console.WriteLine(ID.ToString());
                 EmpData.FirstName = Empinfo.EmployeeFirstName;
                 EmpData.SecondName = Empinfo.EmployeeSecondName;
                 EmpData.LastName = Empinfo.EmployeeLastName;
                 СreateEmployee(ID, EmpData);
-                return new MemoryStream(Encoding.UTF8.GetBytes("{Status:\"OK\"}"));
+                return new MemoryStream(Encoding.UTF8.GetBytes("{\"Status\":\"OK\"}"));
             }
             catch (Exception Exp)
             {
@@ -615,7 +616,8 @@ HttpStatusCode.BadRequest;
                 var photoString = stream.EmployeePhoto;
                 byte[] photo = Convert.FromBase64String(photoString);
                 ManagePhoto(id, photo);
-                return new MemoryStream(Encoding.UTF8.GetBytes($"{{Status:{stream.EmployeeId + "sd" + stream.EmployeePhoto}}}"));
+                return new MemoryStream(Encoding.UTF8.GetBytes("{\"Status\":\"OK\"}"));
+                //return new MemoryStream(Encoding.UTF8.GetBytes($"{{Status:{stream.EmployeeId + "sd" + stream.EmployeePhoto}}}"));
             }
             catch (Exception Exp)
             {
