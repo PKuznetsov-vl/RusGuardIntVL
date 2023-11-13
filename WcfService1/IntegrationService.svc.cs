@@ -19,6 +19,7 @@ using VVIInvestment.RusGuard.DAL.Entities.Entity.ACS.AccessLevels;
 using VVIInvestment.RusGuard.DAL.Entities.Entity.ACS.AccessLevels.AcsAccesPoints;
 using VVIInvestment.RusGuard.DAL.Entities.Entity.ACS.AcsKeys;
 using VVIInvestment.RusGuard.DAL.Entities.Entity.ACS.Employees;
+using VVIInvestment.RusGuard.DAL.Entities.Entity.CardType;
 using VVIInvestment.RusGuard.DAL.Entities.Entity.Log;
 using VVIInvestment.RusGuard.DAL.Entities.Exceptions;
 using VVIInvestment.RusGuard.Net.Services;
@@ -73,6 +74,7 @@ namespace WcfService1
             return IntArr;
         }
         #region Получить уровни доступа
+
 
         public string ReturnGetAcsAccessLevels1()
         {
@@ -304,6 +306,40 @@ System.Net.HttpStatusCode.BadRequest;
             }
 
         }
+
+        /// <summary>
+        /// Получить полные данные о типах карт
+        /// </summary>
+        /// <returns></returns>
+        public static CardTypesInfoData GetCardTypes(int PageNum=0,int PageSize=1000)
+        {
+
+            return NetworkService.InvokeFunc(_ => _.GetCardTypes(PageNum, PageSize, CardTypeSortedColumn.Name, SortOrder.Ascending), ServiceUrl);
+        }
+
+        public Stream ReturnGetCardTypes()
+        {
+            try
+            {
+                Validate();
+
+                var res = GetCardTypes();
+                string output = JsonConvert.SerializeObject(res); 
+                return new MemoryStream(Encoding.UTF8.GetBytes(output));
+            }
+            catch (Exception Exp)
+            {
+                WebOperationContext.Current.OutgoingResponse.StatusCode =
+    System.Net.HttpStatusCode.BadRequest;
+                errorData.Message = Exp.Message;
+                string ErrorJson = JsonConvert.SerializeObject(errorData);
+                return new MemoryStream(Encoding.UTF8.GetBytes(ErrorJson));
+            }
+
+        }
+
+
+
         public Stream ReturnEmployeeKeys(string Id)
         {
             try
